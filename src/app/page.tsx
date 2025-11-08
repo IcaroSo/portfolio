@@ -43,7 +43,7 @@ export default function Home() {
           <div className="flex items-center justify-center lg:justify-start gap-8 sm:gap-12">
             <a 
               className="px-4 py-4 bg-indigo-500 hover:bg-indigo-900 text-white rounded-full shadow-[0_0_15px_#4E03E0] transition"
-              href="https://github.com/seuusuario"
+              href="https://github.com/IcaroSo"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -51,7 +51,7 @@ export default function Home() {
             </a>
             <a
               className="px-4 py-4 bg-indigo-500 hover:bg-indigo-900 text-white rounded-full shadow-[0_0_15px_#4E03E0] transition"
-              href="https://linkedin.com/in/seuusuario"
+              href="https://linkedin.com/in/icrusousa"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -59,7 +59,7 @@ export default function Home() {
             </a>
             <a
               className="px-4 py-4 bg-indigo-500 hover:bg-indigo-900 text-white rounded-full shadow-[0_0_15px_#4E03E0] transition"
-              href="mailto:seuemail@gmail.com"
+              href="mailto:icarosa20rs@gmail.com"
             >
               <Image src="/icons/home/icons8-gmail-250.png" alt="E-mail" width={32} height={32} />
             </a>
