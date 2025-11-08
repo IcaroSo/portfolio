@@ -22,9 +22,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br" className={`${josefin.variable} ${minecraftFont.variable}`}>
-      <body className="font-[var(--font-josefin)] bg-gradient-to-b from-black via-[#050019] to-[#0a0033] text-white min-h-screen">
+      <body className="font-[var(--font-josefin)] bg-gradient-to-b from-black via-[#04001b] to-[#0a0047] text-white min-h-screen">
         <Navbar />
-        <main className="px-8 py-12">{children}</main>
+        <main className="px-4 sm:px-6 md:px-8 py-8 sm:py-12">{children}</main>
       </body>
     </html>
   );
