@@ -1,8 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-24">
+    <motion.section
+      initial={{ opacity: 0, y: -40 }}   // começa acima e invisível
+      animate={{ opacity: 1, y: 0 }}     // desce até o lugar
+      transition={{ duration: 1.4, ease: "easeOut" }} // bem devagar
+      className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-24"
+    >
       {/* flex-column até telas grandes */}
       <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
         
@@ -41,44 +49,42 @@ export default function Home() {
 
           {/* ÍCONES */}
           <div className="flex items-center justify-center lg:justify-start gap-8 sm:gap-12">
+            <a
+              className="px-4 py-4 text-white rounded-full transition
+                         shadow-[0_0_15px_#4E03E0]
+                         bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+                         hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
+              href="https://github.com/IcaroSo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/icons/home/github-mark-white.png" alt="GitHub" width={32} height={32} />
+            </a>
 
-  <a
-    className="px-4 py-4 text-white rounded-full transition
-               shadow-[0_0_15px_#4E03E0]
-               bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-               hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
-    href="https://github.com/IcaroSo"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Image src="/icons/home/github-mark-white.png" alt="GitHub" width={32} height={32} />
-  </a>
+            <a
+              className="px-4 py-4 text-white rounded-full transition
+                         shadow-[0_0_15px_#4E03E0]
+                         bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+                         hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
+              href="https://linkedin.com/in/icrusousa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/icons/home/InBug-White.png" alt="LinkedIn" width={32} height={32} />
+            </a>
 
-  <a
-    className="px-4 py-4 text-white rounded-full transition
-               shadow-[0_0_15px_#4E03E0]
-               bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-               hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
-    href="https://linkedin.com/in/icrusousa"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Image src="/icons/home/InBug-White.png" alt="LinkedIn" width={32} height={32} />
-  </a>
-
-  <a
-    className="px-4 py-4 text-white rounded-full transition
-               shadow-[0_0_15px_#4E03E0]
-               bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-               hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
-    href="mailto:icarosa20rs@gmail.com"
-  >
-    <Image src="/icons/home/icons8-gmail-250.png" alt="E-mail" width={32} height={32} />
-  </a>
-
-</div>
+            <a
+              className="px-4 py-4 text-white rounded-full transition
+                         shadow-[0_0_15px_#4E03E0]
+                         bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+                         hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
+              href="mailto:icarosa20rs@gmail.com"
+            >
+              <Image src="/icons/home/icons8-gmail-250.png" alt="E-mail" width={32} height={32} />
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

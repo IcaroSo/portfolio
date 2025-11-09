@@ -1,10 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ExperiencePage() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-[80vh] px-8 sm:px-12 md:px-16 lg:px-24">
+    <motion.section
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.4, ease: "easeOut" }}
+      className="flex flex-col items-center justify-center min-h-[80vh] px-8 sm:px-12 md:px-16 lg:px-24"
+    >
 
       {/* GRID PRINCIPAL */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl">
@@ -72,7 +78,7 @@ export default function ExperiencePage() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }
 

@@ -38,7 +38,12 @@ export default function SkillsPage() {
   const boundsRef = useRef<HTMLDivElement>(null);
 
   return (
-  <section className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto">
+  <motion.section
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.4, ease: "easeOut" }}
+      className="flex flex-col items-center justify-center min-h-[60vh] px-8 sm:px-12 md:px-16 lg:px-24"
+    >
 
   {/* Área das bolhas */}
   <div
@@ -76,7 +81,7 @@ export default function SkillsPage() {
       <strong className="text-indigo-400"> Scrum</strong>.
     </p>
   </div>
-</section>
+</motion.section>
 
   );
 }

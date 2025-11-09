@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 
 interface Project {
   title: string;
@@ -22,7 +24,12 @@ export default function ProjectsPage() {
     "3";
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-[70vh] px-6 sm:px-10 md:px-16 lg:px-24">
+    <motion.section
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.4, ease: "easeOut" }}
+      className="flex flex-col items-center justify-center min-h-[70vh] px-6 sm:px-10 md:px-16 lg:px-24"
+    >
       <h2 className="text-3xl font-bold text-blue-400 mb-12 text-center">
         Projetos
       </h2>
@@ -48,7 +55,7 @@ export default function ProjectsPage() {
           <ProjectCard key={idx} project={project} />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -148,7 +155,7 @@ const projects: Project[] = [
     description:
       "Recriação do UNO usando React, Node.js e WebSockets para multiplayer em tempo real.",
     image: "/images/uno.jpeg",
-    link: "https://github.com/Jonatasdotdev/Uno-Game",
+    link: "https://github.com/IcaroSo/Uno-Game",
   },
   {
     title: "To-Do List em Java",
@@ -163,5 +170,12 @@ const projects: Project[] = [
       "API segura com ASP.NET, Entity Framework e BCrypt para gerenciamento de usuários.",
     image: "/images/authentication.jpg",
     link: "https://github.com/IcaroSo/AuthenticationAPI",
+  },
+  {
+    title: "Portfolio",
+    description:
+      "API segura com ASP.NET, Entity Framework e BCrypt para gerenciamento de usuários.",
+    image: "/images/portfolio.png",
+    link: "https://github.com/IcaroSo/portfolio",
   },
 ];
