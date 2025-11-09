@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 const techBubbles = [
@@ -65,10 +65,11 @@ export default function SkillsPage() {
 function Bubble({ tech, boundsRef }: any) {
   const controls = useAnimation();
   const bubbleSize = 80;
+  const speedMultiplier = 0.03; // Velocidade mais lenta
 
   const velRef = useRef({
-    vx: (Math.random() * 2 - 1) * 1,
-    vy: (Math.random() * 2 - 1) * 1,
+    vx: (Math.random() * 2 - 1) * speedMultiplier,
+    vy: (Math.random() * 2 - 1) * speedMultiplier,
   });
 
   const isDraggingRef = useRef(false);
@@ -110,7 +111,7 @@ function Bubble({ tech, boundsRef }: any) {
         y = Math.max(0, Math.min(y, maxY));
 
         positionRef.current = { x, y };
-        controls.start({ x, y, transition: { duration: 0.03, ease: "linear" } });
+        controls.start({ x, y, transition: { duration: 0.05, ease: "linear" } });
       }
 
       frameId = requestAnimationFrame(animateBubble);
@@ -127,9 +128,7 @@ function Bubble({ tech, boundsRef }: any) {
       drag
       dragConstraints={boundsRef}
       animate={controls}
-      onDragStart={() => {
-        isDraggingRef.current = true;
-      }}
+      onDragStart={() => { isDraggingRef.current = true; }}
       onDragEnd={(_, info) => {
         isDraggingRef.current = false;
 
@@ -140,9 +139,9 @@ function Bubble({ tech, boundsRef }: any) {
         positionRef.current = { x: newX, y: newY };
         controls.set({ x: newX, y: newY });
 
-        // Velocidade suave
-        velRef.current.vx = (info.velocity.x / 600) || (Math.random() * 1 - 0.5);
-        velRef.current.vy = (info.velocity.y / 600) || (Math.random() * 1 - 0.5);
+        // Velocidade suave e lenta após soltar
+        velRef.current.vx = (info.velocity.x / 2000) || (Math.random() * 0.05 - 0.025);
+        velRef.current.vy = (info.velocity.y / 2000) || (Math.random() * 0.05 - 0.025);
       }}
     >
       <img src={tech.src} alt={tech.alt} className="w-14 h-14 object-contain" />
