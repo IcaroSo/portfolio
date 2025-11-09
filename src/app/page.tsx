@@ -8,7 +8,7 @@ export default function Home() {
         
         {/* FOTO */}
         <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden bg-gradient-to-b from-indigo-700 to-blue-900 shadow-[0_0_25px_#4338ca] animate-float">
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black px-4 py-1.5 opacity-60 rounded-md">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black px-4 py-1.5 opacity-60 ">
             <h2
               className="text-sm text-white font-bold tracking-wider drop-shadow-[0_0_6px_#ffffff]"
               style={{ fontFamily: "var(--font-minecraft)" }}
