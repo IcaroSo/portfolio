@@ -59,17 +59,21 @@ function ProjectCard({ project }: { project: Project }) {
     <div
       onClick={() => setOpen(!open)}
       className={`
-        group relative overflow-hidden rounded-2xl 
-        bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-        shadow-[0_0_20px_#4E03E0]
-        transition-all duration-300 ease-out
-        cursor-pointer
+  group relative overflow-hidden rounded-2xl 
+  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
+  shadow-[0_0_20px_#4E03E0]
+  transition-all duration-300 ease-out
+  cursor-pointer
 
-        /* ✅ Hover apenas no desktop */
-        lg:hover:scale-[1.04] 
-        lg:hover:-translate-y-2 
-        lg:hover:shadow-[0_0_35px_#4E03E0]
-      `}
+  /* ✅ HOVER (desktop) */
+  lg:hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+  lg:hover:shadow-[0_0_35px_#4E03E0]
+  lg:hover:scale-[1.04]
+  lg:hover:-translate-y-2
+
+  /* ✅ CLICK NO MOBILE (abre) */
+  ${open ? "bg-[linear-gradient(135deg,#6C34E8,#4D20A1)] shadow-[0_0_35px_#4E03E0]" : ""}
+`}
     >
       <div className="w-full h-52 overflow-hidden">
         <Image

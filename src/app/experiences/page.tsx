@@ -19,14 +19,18 @@ export default function ExperiencePage() {
             <div
               key={idx}
               className="
-                p-6 rounded-2xl
-                bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-                shadow-[0_0_20px_#4E03E0]
-                text-left
-                transition-all duration-300 ease-out
-                hover:scale-[1.03] hover:-translate-y-2
-                hover:shadow-[0_0_35px_#4E03E0]
-              "
+  p-6 rounded-2xl
+  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
+  shadow-[0_0_20px_#4E03E0]
+  text-left
+  transition-all duration-300 ease-out
+
+  /* ✅ HOVER ROXO IGUAL AO BOTÃO */
+  hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+  hover:shadow-[0_0_30px_#4E03E0]
+  hover:scale-[1.03] 
+  hover:-translate-y-2
+"
             >
               <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
               <p className="text-gray-100 leading-relaxed">
@@ -46,14 +50,18 @@ export default function ExperiencePage() {
             <div
               key={idx}
               className="
-                p-6 rounded-2xl
-                bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-                shadow-[0_0_20px_#4E03E0]
-                text-left
-                transition-all duration-300 ease-out
-                hover:scale-[1.03] hover:-translate-y-2
-                hover:shadow-[0_0_35px_#4E03E0]
-              "
+  p-6 rounded-2xl
+  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
+  shadow-[0_0_20px_#4E03E0]
+  text-left
+  transition-all duration-300 ease-out
+
+  /* ✅ HOVER ROXO IGUAL AO BOTÃO */
+  hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+  hover:shadow-[0_0_30px_#4E03E0]
+  hover:scale-[1.03] 
+  hover:-translate-y-2
+"
             >
               <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
               <p className="text-gray-100 leading-relaxed">
