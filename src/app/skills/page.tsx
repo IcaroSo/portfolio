@@ -4,12 +4,29 @@ import { useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 const techBubbles = [
-  { src: "/logos/java.png", alt: "Java" },
-  { src: "/logos/csharp.png", alt: "C#" },
-  { src: "/logos/node.png", alt: "Node.js" },
-  { src: "/logos/spring.png", alt: "Spring Boot" },
-  { src: "/logos/dotnet.png", alt: ".NET" },
-  { src: "/logos/postgres.png", alt: "PostgreSQL" },
+  { src: "/icons/skills/CSS3.png", alt: "Css" },
+  { src: "/icons/skills/HTML5.png", alt: "Html" },
+  { src: "/icons/skills/icons8-c-sharp-logo-240.png", alt: "C#" },
+  { src: "/icons/skills/icons8-docker-240.png", alt: "Docker" },
+  { src: "/icons/skills/icons8-git-240.png", alt: "Git" },
+  { src: "/icons/skills/icons8-intellij-idea-240.png", alt: "Intellij" },
+  { src: "/icons/skills/icons8-java-240.png", alt: "Java" },
+  { src: "/icons/skills/icons8-javascript-240.png", alt: "Javascript" },
+  { src: "/icons/skills/icons8-postgresql-240.png", alt: "Postgres" },
+  { src: "/icons/skills/icons8-python-240.png", alt: "Python" },
+  { src: "/icons/skills/linux_6124995.png", alt: "Linux" },
+  { src: "/icons/skills/MongoDB.png", alt: "MongoDB" },
+  { src: "/icons/skills/MySQL.png", alt: "MySQL" },
+  { src: "/icons/skills/NET.png", alt: ".Net" },
+  { src: "/icons/skills/node-svgrepo-com.png", alt: "Node.js" },
+  { src: "/icons/skills/Postman.png", alt: "Postman" },
+  { src: "/icons/skills/React.png", alt: "React.js" },
+
+  { src: "/icons/skills/Spring.png", alt: "Spring boot" },
+  { src: "/icons/skills/Visual Studio Code (VS Code).png", alt: "Visual Studio Code" },
+  { src: "/icons/skills/Visual Studio.png", alt: "Visual Studio" },
+  { src: "/icons/skills/Rider.png", alt: "Rider" },
+
 ];
 
 function randomStart(width: number, height: number, bubbleSize: number) {
