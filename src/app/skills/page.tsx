@@ -53,27 +53,27 @@ export default function SkillsPage() {
 
   {/* Descrição */}
   <div className="flex-1 flex flex-col items-center justify-center max-w-6xl px-6 sm:px-12 md:px-16 lg:px-24 mt-8 lg:mt-0 text-center lg:text-left">
-    <h2 className="text-2xl font-bold mb-4 text-blue-800">Skills</h2>
+    <h2 className="text-2xl font-bold mb-4 text-blue-500">Skills</h2>
     <p className="leading-relaxed text-lg mb-8">
-      Foco no desenvolvimento <strong className="text-blue-400">backend</strong> com experiência em
-      <strong className="text-blue-400"> Java</strong>, <strong className="text-blue-400">C#</strong> e
-      <strong className="text-blue-400"> Node.js</strong>, criando APIs robustas com
-      <strong className="text-blue-400"> Spring Boot</strong> e <strong className="text-blue-400">.NET</strong>.
+      Foco no desenvolvimento <strong className="text-indigo-400">backend</strong> com experiência em
+      <strong className="text-indigo-400"> Java</strong>, <strong className="text-indigo-400">C#</strong> e
+      <strong className="text-indigo-400"> Node.js</strong>, criando APIs robustas com
+      <strong className="text-indigo-400"> Spring Boot</strong> e <strong className="text-indigo-400">.NET</strong>.
       <br /><br />
       Trabalho com bancos de dados
-      <strong className="text-blue-400"> PostgreSQL</strong>,
-      <strong className="text-blue-400"> MySQL</strong> e
-      <strong className="text-blue-400"> MongoDB</strong>.
+      <strong className="text-indigo-400"> PostgreSQL</strong>,
+      <strong className="text-indigo-400"> MySQL</strong> e
+      <strong className="text-indigo-400"> MongoDB</strong>.
     </p>
 
-    <h2 className="text-2xl font-bold mb-4 text-blue-800">
+    <h2 className="text-2xl font-bold mb-4 text-blue-500">
       Tools <span className="text-white">&</span> Workflow
     </h2>
     <p className="leading-relaxed text-lg">
-      Domino <strong className="text-blue-400">Docker</strong> e <strong className="text-blue-400">Docker Compose</strong>.
-      Trabalho com <strong className="text-blue-400">Git</strong>, <strong className="text-blue-400">GitHub</strong> e
-      <strong className="text-blue-400">GitLab</strong>, aplicando metodologias ágeis como
-      <strong className="text-blue-400"> Scrum</strong>.
+      Domino <strong className="text-indigo-400">Docker</strong> e <strong className="text-indigo-400">Docker Compose</strong>.
+      Trabalho com <strong className="text-indigo-400">Git</strong>, <strong className="text-indigo-400">GitHub</strong> e
+      <strong className="text-indigo-400">GitLab</strong>, aplicando metodologias ágeis como
+      <strong className="text-indigo-400"> Scrum</strong>.
     </p>
   </div>
 </section>
