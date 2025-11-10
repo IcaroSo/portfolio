@@ -42,10 +42,13 @@ export default function Home() {
           <h3 className="text-2xl sm:text-2xl mb-4 text-blue-500">
             Fullstack developer
           </h3>
-          <p className="text-gray-300 mb-8 text-base sm:text-lg">
-            Sou desenvolvedor fullstack apaixonado por criar experiências digitais modernas,
-            acessíveis e eficientes, combinando design e tecnologia.
-          </p>
+          <div className="text-gray-300 mb-8 text-base sm:text-lg space-y-2">
+  <p>Desenvolvedor Fullstack apaixonado por criar soluções digitais escaláveis e de alto desempenho.</p>
+  <p>Experiência prática em Java, C#, Spring Boot, .NET, JavaScript e Node.js, com atuação em aplicações desktop e plataformas web integradas.</p>
+  <p>Sempre focado em qualidade de código, boas práticas de engenharia e experiências eficientes para o usuário.</p>
+  <p>Busco contribuir com projetos desafiadores enquanto continuo evoluindo minhas habilidades técnicas.</p>
+</div>
+
 
           {/* ÍCONES */}
           <div className="flex items-center justify-center lg:justify-start gap-8 sm:gap-12">
