@@ -116,28 +116,28 @@ const projects: Project[] = [
   {
     title: "UNO Online",
     description:
-      "Recriação do UNO usando React, Node.js e WebSockets para multiplayer em tempo real.",
+      "Recriação do clássico jogo UNO com multiplayer em tempo real, usando React para interface interativa, Node.js para lógica de jogo e WebSockets para comunicação eficiente entre jogadores.",
     image: "/images/uno.jpeg",
     link: "https://github.com/IcaroSo/Uno-Game",
   },
   {
     title: "To-Do List em Java",
     description:
-      "App de gerenciamento de tarefas utilizando MongoDB como banco de dados.",
+      "Aplicação de gerenciamento de tarefas com persistência em MongoDB, focada em performance, organização de dados e experiência do usuário, utilizando boas práticas de programação orientada a objetos.",
     image: "/images/todo.jpg",
     link: "https://github.com/IcaroSo/ToDoApp/tree/develop",
   },
   {
     title: "Authentication API em C#",
     description:
-      "API segura com ASP.NET, Entity Framework e BCrypt para gerenciamento de usuários.",
+      "API segura e escalável construída com ASP.NET, Entity Framework e BCrypt, permitindo autenticação, gerenciamento de usuários e permissões com foco em segurança e arquitetura limpa.",
     image: "/images/authentication.jpg",
     link: "https://github.com/IcaroSo/AuthenticationAPI",
   },
   {
-    title: "Portfolio",
+    title: "Portfolio Pessoal",
     description:
-      "Portfolio pessoal com projetos e informações de contato.",
+      "Portfolio moderno e responsivo desenvolvido para apresentar projetos, habilidades e informações de contato, destacando competências em React, Tailwind CSS e design centrado no usuário.",
     image: "/images/portfolio.png",
     link: "https://github.com/IcaroSo/portfolio",
   },
