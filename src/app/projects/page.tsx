@@ -41,12 +41,9 @@ export default function ProjectsPage() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const [open, setOpen] = useState(false);
-
   return (
     <div
-      onClick={() => setOpen(!open)}
-      className={`
+      className="
         group relative overflow-hidden rounded-2xl 
         bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
         shadow-[0_0_20px_#4E03E0]
@@ -56,8 +53,7 @@ function ProjectCard({ project }: { project: Project }) {
         lg:hover:shadow-[0_0_35px_#4E03E0]
         lg:hover:scale-[1.04]
         lg:hover:-translate-y-2
-        ${open ? "bg-[linear-gradient(135deg,#6C34E8,#4D20A1)] shadow-[0_0_35px_#4E03E0]" : ""}
-      `}
+      "
     >
       <div className="w-full h-52 overflow-hidden">
         <Image
@@ -65,35 +61,23 @@ function ProjectCard({ project }: { project: Project }) {
           alt={project.title}
           width={600}
           height={350}
-          className={`
-            object-cover w-full h-full transition-all duration-300
-            lg:group-hover:scale-110
-            ${open ? "scale-110" : "scale-100"}
-          `}
+          className="object-cover w-full h-full transition-all duration-300 lg:group-hover:scale-110"
         />
       </div>
 
-      <h3 className="text-xl font-bold text-white p-4 pb-2">
-        {project.title}
-      </h3>
+      <h3 className="text-xl font-bold text-white p-4 pb-2">{project.title}</h3>
 
-      <p
-        className={`
-          text-gray-200 px-4 transition-all duration-300 overflow-hidden
-          lg:opacity-0 lg:max-h-0 lg:group-hover:opacity-100 lg:group-hover:max-h-40
-          ${open ? "opacity-100 max-h-40" : "opacity-0 max-h-0"}
-        `}
-      >
+      <p className="
+        text-gray-200 px-4 transition-all duration-300 overflow-hidden
+        lg:opacity-0 lg:max-h-0 lg:group-hover:opacity-100 lg:group-hover:max-h-40
+      ">
         {project.description}
       </p>
 
-      <div
-        className={`
-          p-4 pt-2 transition-all duration-300 overflow-hidden
-          lg:opacity-0 lg:max-h-0 lg:group-hover:opacity-100 lg:group-hover:max-h-20
-          ${open ? "opacity-100 max-h-20" : "opacity-0 max-h-0"}
-        `}
-      >
+      <div className="
+        p-4 pt-2 transition-all duration-300 overflow-hidden
+        lg:opacity-0 lg:max-h-0 lg:group-hover:opacity-100 lg:group-hover:max-h-20
+      ">
         <a
           href={project.link}
           target="_blank"
