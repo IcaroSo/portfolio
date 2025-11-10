@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-
 interface Project {
   title: string;
   description: string;
@@ -13,16 +12,6 @@ interface Project {
 }
 
 export default function ProjectsPage() {
-  const count = projects.length;
-
-  // ---- REGRAS DO USUÁRIO (tablet pra cima)
-  const colsRule =
-    count === 1 ? "1" :
-    count === 2 ? "2" :
-    count === 3 ? "3" :
-    count === 4 ? "2" :
-    "3";
-
   return (
     <motion.section
       initial={{ opacity: 0, y: -40 }}
@@ -35,21 +24,13 @@ export default function ProjectsPage() {
       </h2>
 
       <div
-        className={`
+        className="
           grid gap-12 w-full max-w-7xl
-
-          /* ✅ MOBILE SEMPRE 1 COLUNA */
           grid-cols-1
-
-          /* ✅ TABLET PEQUENO (sm) */
-          sm:grid-cols-${colsRule}
-
-          /* ✅ TABLET MÉDIO (md) */
-          md:grid-cols-${colsRule}
-
-          /* ✅ DESKTOP (lg) */
-          lg:grid-cols-${count >= 3 ? "3" : colsRule}
-        `}
+          sm:grid-cols-2
+          md:grid-cols-2
+          lg:grid-cols-2
+        "
       >
         {projects.map((project, idx) => (
           <ProjectCard key={idx} project={project} />
@@ -66,21 +47,17 @@ function ProjectCard({ project }: { project: Project }) {
     <div
       onClick={() => setOpen(!open)}
       className={`
-  group relative overflow-hidden rounded-2xl 
-  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-  shadow-[0_0_20px_#4E03E0]
-  transition-all duration-300 ease-out
-  cursor-pointer
-
-  /* ✅ HOVER (desktop) */
-  lg:hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-  lg:hover:shadow-[0_0_35px_#4E03E0]
-  lg:hover:scale-[1.04]
-  lg:hover:-translate-y-2
-
-  /* ✅ CLICK NO MOBILE (abre) */
-  ${open ? "bg-[linear-gradient(135deg,#6C34E8,#4D20A1)] shadow-[0_0_35px_#4E03E0]" : ""}
-`}
+        group relative overflow-hidden rounded-2xl 
+        bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
+        shadow-[0_0_20px_#4E03E0]
+        transition-all duration-300 ease-out
+        cursor-pointer
+        lg:hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+        lg:hover:shadow-[0_0_35px_#4E03E0]
+        lg:hover:scale-[1.04]
+        lg:hover:-translate-y-2
+        ${open ? "bg-[linear-gradient(135deg,#6C34E8,#4D20A1)] shadow-[0_0_35px_#4E03E0]" : ""}
+      `}
     >
       <div className="w-full h-52 overflow-hidden">
         <Image
@@ -90,11 +67,7 @@ function ProjectCard({ project }: { project: Project }) {
           height={350}
           className={`
             object-cover w-full h-full transition-all duration-300
-
-            /* Desktop hover */
             lg:group-hover:scale-110
-
-            /* Mobile/tablet clique */
             ${open ? "scale-110" : "scale-100"}
           `}
         />
@@ -104,30 +77,20 @@ function ProjectCard({ project }: { project: Project }) {
         {project.title}
       </h3>
 
-      {/* ✅ DESCRIÇÃO animada */}
       <p
         className={`
           text-gray-200 px-4 transition-all duration-300 overflow-hidden
-
-          /* Desktop hover */
           lg:opacity-0 lg:max-h-0 lg:group-hover:opacity-100 lg:group-hover:max-h-40
-
-          /* Mobile/tablet clique */
           ${open ? "opacity-100 max-h-40" : "opacity-0 max-h-0"}
         `}
       >
         {project.description}
       </p>
 
-      {/* ✅ BOTÃO animado */}
       <div
         className={`
           p-4 pt-2 transition-all duration-300 overflow-hidden
-
-          /* Desktop hover */
           lg:opacity-0 lg:max-h-0 lg:group-hover:opacity-100 lg:group-hover:max-h-20
-
-          /* Mobile/tablet clique */
           ${open ? "opacity-100 max-h-20" : "opacity-0 max-h-0"}
         `}
       >
@@ -174,7 +137,7 @@ const projects: Project[] = [
   {
     title: "Portfolio",
     description:
-      "API segura com ASP.NET, Entity Framework e BCrypt para gerenciamento de usuários.",
+      "Portfolio pessoal com projetos e informações de contato.",
     image: "/images/portfolio.png",
     link: "https://github.com/IcaroSo/portfolio",
   },

@@ -27,7 +27,7 @@ export default function ExperiencePage() {
               className="
   p-6 rounded-2xl
   bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-  shadow-[0_0_20px_#4E03E0]
+  shadow-[0_0_15px_#4E03E0]
   text-left
   transition-all duration-300 ease-out
 
@@ -58,7 +58,7 @@ export default function ExperiencePage() {
               className="
   p-6 rounded-2xl
   bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-  shadow-[0_0_20px_#4E03E0]
+  shadow-[0_0_15px_#4E03E0]
   text-left
   transition-all duration-300 ease-out
 
