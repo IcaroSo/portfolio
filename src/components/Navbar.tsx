@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { name: "Home", href: "/" },
-  { name: "Skills", href: "/skills" },
-  { name: "Experiences", href: "/experiences" },
-  { name: "Projects", href: "/projects" },
+  { name: "Início", href: "/" },
+  { name: "Skills", href: "/skills" },          
+  { name: "Experiências", href: "/experiences" },
+  { name: "Projetos", href: "/projects" },
 ];
 
 export default function Navbar() {
