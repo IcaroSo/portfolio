@@ -119,7 +119,7 @@ const projects: Project[] = [
     link: "https://github.com/IcaroSo/AuthenticationAPI",
   },
   {
-    title: "Portfolio Pessoal",
+    title: "Portfólio Pessoal",
     description:
       "Portfolio moderno e responsivo desenvolvido para apresentar projetos, habilidades e informações de contato, destacando competências em React, Tailwind CSS e design centrado no usuário.",
     image: "/images/portfolio.png",
