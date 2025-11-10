@@ -38,69 +38,88 @@ export default function SkillsPage() {
   const boundsRef = useRef<HTMLDivElement>(null);
 
   return (
-  <motion.section
+    <motion.section
       initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.4, ease: "easeOut" }}
-      className="flex flex-col items-center justify-center min-h-[60vh] px-8 sm:px-12 md:px-16 lg:px-24"
+      className="flex flex-col items-center justify-start min-h-[100vh] px-8 sm:px-12 md:px-16 lg:px-24 py-12"
     >
+      {/* Área das bolhas */}
+      <div
+        ref={boundsRef}
+        className="relative w-full min-h-[50vh] sm:min-h-[33vh] md:min-h-[35vh] lg:min-h-[38vh] xl:min-h-[40vh]"
 
-  {/* Área das bolhas */}
-  <div
-  ref={boundsRef}
-  className="relative w-full lg:flex-1
-             h-[60vh] sm:h-[55vh] md:h-[50vh] lg:h-[600px]"
->
-  {techBubbles.map((tech, index) => (
-    <Bubble key={index} tech={tech} boundsRef={boundsRef} />
-  ))}
-</div>
+      >
+        {techBubbles.map((tech, index) => (
+          <Bubble key={index} tech={tech} boundsRef={boundsRef} />
+        ))}
+      </div>
 
-  {/* Descrição */}
-  <div className="flex-1 flex flex-col items-center justify-center max-w-6xl px-6 sm:px-12 md:px-16 lg:px-24 mt-8 lg:mt-0 text-center lg:text-left">
-    <h2 className="text-2xl font-bold mb-4 text-blue-500">Skills</h2>
-    <p className="leading-relaxed text-lg mb-8">
-      Foco no desenvolvimento <strong className="text-indigo-400">backend</strong> com experiência em
-      <strong className="text-indigo-400"> Java</strong>, <strong className="text-indigo-400">C#</strong> e
-      <strong className="text-indigo-400"> Node.js</strong>, criando APIs robustas com
-      <strong className="text-indigo-400"> Spring Boot</strong> e <strong className="text-indigo-400">.NET</strong>.
-      <br /><br />
-      Trabalho com bancos de dados
-      <strong className="text-indigo-400"> PostgreSQL</strong>,
-      <strong className="text-indigo-400"> MySQL</strong> e
-      <strong className="text-indigo-400"> MongoDB</strong>.
-    </p>
+      {/* Descrição abaixo das bolhas */}
+      <div className="flex flex-col items-center justify-center max-w-6xl px-6 sm:px-12 md:px-16 mt-12 text-center">
+        <h2 className="text-2xl font-bold mb-4 text-blue-500">
+          Backend & Desenvolvimento
+        </h2>
+        <p className="leading-relaxed text-lg mb-6">
+          Especialista em criar APIs{" "}
+          <strong className="text-indigo-400">robustas</strong> e{" "}
+          <strong className="text-indigo-400">escaláveis</strong> usando{" "}
+          <strong className="text-indigo-400">Java</strong>,{" "}
+          <strong className="text-indigo-400">C#</strong> e{" "}
+          <strong className="text-indigo-400">Node.js</strong>. Experiência
+          prática com frameworks{" "}
+          <strong className="text-indigo-400">Spring Boot</strong> e{" "}
+          <strong className="text-indigo-400">.NET</strong>, garantindo
+          desempenho, segurança e manutenção de alto nível.
+        </p>
 
-    <h2 className="text-2xl font-bold mb-4 text-blue-500">
-      Tools <span className="text-white">&</span> Workflow
-    </h2>
-    <p className="leading-relaxed text-lg">
-      Domino <strong className="text-indigo-400">Docker</strong> e <strong className="text-indigo-400">Docker Compose</strong>.
-      Trabalho com <strong className="text-indigo-400">Git</strong>, <strong className="text-indigo-400">GitHub</strong> e
-      <strong className="text-indigo-400">GitLab</strong>, aplicando metodologias ágeis como
-      <strong className="text-indigo-400"> Scrum</strong>.
-    </p>
-  </div>
-</motion.section>
+        <h2 className="text-2xl font-bold mb-4 text-blue-500">
+          Frontend & Desenvolvimento
+        </h2>
+        <p className="leading-relaxed text-lg mb-6">
+          Atualmente aprimorando habilidades em{" "}
+          <strong className="text-indigo-400">React.js</strong>,{" "}
+          <strong className="text-indigo-400">JavaScript</strong>,{" "}
+          <strong className="text-indigo-400">HTML</strong>,{" "}
+          <strong className="text-indigo-400">CSS</strong> e{" "}
+          <strong className="text-indigo-400">Tailwind CSS</strong> para criar
+          interfaces modernas, responsivas e centradas no usuário.
+        </p>
 
+        <h2 className="text-2xl font-bold mb-4 text-blue-500">Banco de Dados</h2>
+        <p className="leading-relaxed text-lg mb-6">
+          Gerencio e otimizo dados em{" "}
+          <strong className="text-indigo-400">PostgreSQL</strong>,{" "}
+          <strong className="text-indigo-400">MySQL</strong> e{" "}
+          <strong className="text-indigo-400">MongoDB</strong>, criando soluções
+          persistentes e eficientes para aplicações críticas.
+        </p>
+
+        <h2 className="text-2xl font-bold mb-4 text-blue-500">
+          Ferramentas & Workflow
+        </h2>
+        <p className="leading-relaxed text-lg">
+          Experiência sólida com <strong className="text-indigo-400">Docker</strong>,{" "}
+          <strong className="text-indigo-400">Docker Compose</strong> e
+          versionamento de código com <strong className="text-indigo-400">Git</strong>,{" "}
+          <strong className="text-indigo-400">GitHub</strong> e{" "}
+          <strong className="text-indigo-400">GitLab</strong>. Atuação em equipes
+          ágeis aplicando <strong className="text-indigo-400">Scrum</strong> para
+          entregar soluções rápidas e de alta qualidade.
+        </p>
+      </div>
+    </motion.section>
   );
 }
 
 function Bubble({ tech, boundsRef }: any) {
   const controls = useAnimation();
   const speedMultiplier = 0.03;
-
-  const sizes = {
-    mobile: 40,
-    tablet: 50,
-    desktop: 60,
-  };
-
+  const sizes = { mobile: 40, tablet: 50, desktop: 60 };
   const velRef = useRef({
     vx: (Math.random() * 2 - 1) * speedMultiplier,
     vy: (Math.random() * 2 - 1) * speedMultiplier,
   });
-
   const isDraggingRef = useRef(false);
   const positionRef = useRef({ x: 0, y: 0 });
 
@@ -134,79 +153,59 @@ function Bubble({ tech, boundsRef }: any) {
 
   useEffect(() => {
     let frameId: number;
-
     const animateBubble = () => {
       if (!boundsRef.current) {
         frameId = requestAnimationFrame(animateBubble);
         return;
       }
-
       if (!isDraggingRef.current) {
         const bounds = boundsRef.current.getBoundingClientRect();
         let { x, y } = positionRef.current;
         const bubbleSize = getBubbleSize();
-
         x += velRef.current.vx;
         y += velRef.current.vy;
-
         const maxX = bounds.width - bubbleSize;
         const maxY = bounds.height - bubbleSize;
-
         if (x < 0 || x > maxX) velRef.current.vx *= -1;
         if (y < 0 || y > maxY) velRef.current.vy *= -1;
-
         x = Math.max(0, Math.min(x, maxX));
         y = Math.max(0, Math.min(y, maxY));
-
         positionRef.current = { x, y };
         controls.start({ x, y, transition: { duration: 0.05, ease: "linear" } });
       }
-
       frameId = requestAnimationFrame(animateBubble);
     };
-
     animateBubble();
-
     return () => cancelAnimationFrame(frameId);
   }, [boundsRef, controls]);
 
   const bubbleSize = getBubbleSize();
 
   return (
-   <motion.div
-  className="absolute rounded-full 
-             shadow-[0_0_10px_rgba(78,3,224,0.6)] 
-             flex items-center justify-center cursor-grab active:cursor-grabbing"
-  style={{
-    width: bubbleSize,
-    height: bubbleSize,
-    background: 'linear-gradient(135deg, #4E03E0, #2A027A)'
-  }}
-  drag
-  dragConstraints={boundsRef}
-  animate={controls}
-  onDragStart={() => { isDraggingRef.current = true; }}
-  onDragEnd={(_, info) => {
-    isDraggingRef.current = false;
-
-    const bounds = boundsRef.current!.getBoundingClientRect();
-    const newX = info.point.x - bounds.left - bubbleSize / 2;
-    const newY = info.point.y - bounds.top - bubbleSize / 2;
-
-    positionRef.current = { x: newX, y: newY };
-    controls.set({ x: newX, y: newY });
-
-    velRef.current.vx = (info.velocity.x / 2000) || (Math.random() * 0.05 - 0.025);
-    velRef.current.vy = (info.velocity.y / 2000) || (Math.random() * 0.05 - 0.025);
-  }}
->
-  <img
-    src={tech.src}
-    alt={tech.alt}
-    className="object-contain select-none pointer-events-none"
-    style={{ width: bubbleSize * 0.66, height: bubbleSize * 0.66 }}
-  />
-</motion.div>
-
+    <motion.div
+      className="absolute rounded-full shadow-[0_0_10px_rgba(78,3,224,0.6)] flex items-center justify-center cursor-grab active:cursor-grabbing"
+      style={{ width: bubbleSize, height: bubbleSize, background: 'linear-gradient(135deg, #4E03E0, #2A027A)' }}
+      drag
+      dragConstraints={boundsRef}
+      animate={controls}
+      onDragStart={() => { isDraggingRef.current = true; }}
+      onDragEnd={(_, info) => {
+        isDraggingRef.current = false;
+        const bounds = boundsRef.current!.getBoundingClientRect();
+        const newX = info.point.x - bounds.left - bubbleSize / 2;
+        const newY = info.point.y - bounds.top - bubbleSize / 2;
+        positionRef.current = { x: newX, y: newY };
+        controls.set({ x: newX, y: newY });
+        velRef.current.vx = (info.velocity.x / 2000) || (Math.random() * 0.05 - 0.025);
+        velRef.current.vy = (info.velocity.y / 2000) || (Math.random() * 0.05 - 0.025);
+      }}
+    >
+      <img
+        src={tech.src}
+        alt={tech.alt}
+        className="object-contain select-none pointer-events-none"
+        style={{ width: bubbleSize * 0.66, height: bubbleSize * 0.66 }}
+      />
+    </motion.div>
   );
 }
