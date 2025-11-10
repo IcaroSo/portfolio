@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+
 import { motion, useAnimation } from "framer-motion";
 
 const techBubbles = [
@@ -114,8 +115,12 @@ export default function SkillsPage() {
 
 function Bubble({ tech, boundsRef }: any) {
   const controls = useAnimation();
+
   const speedMultiplier = 0.03;
   const sizes = { mobile: 40, tablet: 50, desktop: 60 };
+
+  const [bubbleSize, setBubbleSize] = useState<number | null>(null);
+
   const velRef = useRef({
     vx: (Math.random() * 2 - 1) * speedMultiplier,
     vy: (Math.random() * 2 - 1) * speedMultiplier,
@@ -124,67 +129,96 @@ function Bubble({ tech, boundsRef }: any) {
   const positionRef = useRef({ x: 0, y: 0 });
 
   const getBubbleSize = () => {
-    if (typeof window === "undefined") return sizes.desktop;
     if (window.innerWidth < 640) return sizes.mobile;
     if (window.innerWidth < 1024) return sizes.tablet;
     return sizes.desktop;
   };
 
+  // ✅ Define tamanho SOMENTE após mount
   useEffect(() => {
+    const size = getBubbleSize();
+    setBubbleSize(size);
+
     const handleResize = () => {
-      const bubbleSize = getBubbleSize();
+      const newSize = getBubbleSize();
+      setBubbleSize(newSize);
+
       if (!boundsRef.current) return;
       const bounds = boundsRef.current.getBoundingClientRect();
-      positionRef.current.x = Math.min(positionRef.current.x, bounds.width - bubbleSize);
-      positionRef.current.y = Math.min(positionRef.current.y, bounds.height - bubbleSize);
+
+      positionRef.current.x = Math.min(positionRef.current.x, bounds.width - newSize);
+      positionRef.current.y = Math.min(positionRef.current.y, bounds.height - newSize);
+
       controls.set(positionRef.current);
     };
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [boundsRef, controls]);
+  }, []);
 
+  // ✅ Só inicia posição depois de ter tamanho
   useEffect(() => {
-    if (!boundsRef.current) return;
+    if (!boundsRef.current || bubbleSize === null) return;
+
     const rect = boundsRef.current.getBoundingClientRect();
-    const bubbleSize = getBubbleSize();
     positionRef.current = randomStart(rect.width, rect.height, bubbleSize);
     controls.set(positionRef.current);
-  }, [boundsRef, controls]);
+  }, [boundsRef, controls, bubbleSize]);
 
+  // ✅ Só anima depois que o tamanho estiver definido
   useEffect(() => {
+    if (bubbleSize === null) return;
+
     let frameId: number;
+
     const animateBubble = () => {
       if (!boundsRef.current) {
         frameId = requestAnimationFrame(animateBubble);
         return;
       }
+
       if (!isDraggingRef.current) {
         const bounds = boundsRef.current.getBoundingClientRect();
         let { x, y } = positionRef.current;
-        const bubbleSize = getBubbleSize();
+
         x += velRef.current.vx;
         y += velRef.current.vy;
+
         const maxX = bounds.width - bubbleSize;
         const maxY = bounds.height - bubbleSize;
+
         if (x < 0 || x > maxX) velRef.current.vx *= -1;
         if (y < 0 || y > maxY) velRef.current.vy *= -1;
+
         x = Math.max(0, Math.min(x, maxX));
         y = Math.max(0, Math.min(y, maxY));
+
         positionRef.current = { x, y };
-        controls.start({ x, y, transition: { duration: 0.05, ease: "linear" } });
+
+        controls.start({
+          x,
+          y,
+          transition: { duration: 0.05, ease: "linear" }
+        });
       }
+
       frameId = requestAnimationFrame(animateBubble);
     };
+
     animateBubble();
     return () => cancelAnimationFrame(frameId);
-  }, [boundsRef, controls]);
+  }, [bubbleSize]);
 
-  const bubbleSize = getBubbleSize();
+  if (bubbleSize === null) return null; // ✅ evita bolhas minúsculas no mount
 
   return (
     <motion.div
       className="absolute rounded-full shadow-[0_0_10px_rgba(78,3,224,0.6)] flex items-center justify-center cursor-grab active:cursor-grabbing"
-      style={{ width: bubbleSize, height: bubbleSize, background: 'linear-gradient(135deg, #4E03E0, #2A027A)' }}
+      style={{
+        width: bubbleSize,
+        height: bubbleSize,
+        background: "linear-gradient(135deg, #4E03E0, #2A027A)"
+      }}
       drag
       dragConstraints={boundsRef}
       animate={controls}
@@ -194,8 +228,10 @@ function Bubble({ tech, boundsRef }: any) {
         const bounds = boundsRef.current!.getBoundingClientRect();
         const newX = info.point.x - bounds.left - bubbleSize / 2;
         const newY = info.point.y - bounds.top - bubbleSize / 2;
+
         positionRef.current = { x: newX, y: newY };
         controls.set({ x: newX, y: newY });
+
         velRef.current.vx = (info.velocity.x / 2000) || (Math.random() * 0.05 - 0.025);
         velRef.current.vy = (info.velocity.y / 2000) || (Math.random() * 0.05 - 0.025);
       }}
@@ -204,8 +240,12 @@ function Bubble({ tech, boundsRef }: any) {
         src={tech.src}
         alt={tech.alt}
         className="object-contain select-none pointer-events-none"
-        style={{ width: bubbleSize * 0.66, height: bubbleSize * 0.66 }}
+        style={{
+          width: bubbleSize * 0.66,
+          height: bubbleSize * 0.66
+        }}
       />
     </motion.div>
   );
 }
+
