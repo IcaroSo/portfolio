@@ -17,8 +17,10 @@ const josefin = Josefin_Sans({
 export const metadata = {
   title: "Meu Portfólio",
   description: "Portfólio pessoal de Ícaro Sousa",
+  icons: {
+    icon: "icons/aba/code.png",
+  },
 };
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br" className={`${josefin.variable} ${minecraftFont.variable}`}>
