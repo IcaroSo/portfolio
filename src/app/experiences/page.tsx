@@ -18,7 +18,7 @@ export default function ExperiencePage() {
         {/* ===== COLUNA ACADÊMICOS ===== */}
         <div className="space-y-8">
           <h2 className="text-2xl font-bold text-blue-400 mb-4 text-left">
-            Experiencias Acadêmicos
+            Experiências Acadêmicas
           </h2>
 
           {academicExperiences.map((exp, idx) => (
@@ -49,7 +49,7 @@ export default function ExperiencePage() {
         {/* ===== COLUNA PESSOAIS ===== */}
         <div className="space-y-8">
           <h2 className="text-2xl font-bold text-blue-400 mb-4 text-left">
-            Experiencias Pessoais
+            Experiências Pessoais
           </h2>
 
           {personalExperiences.map((exp, idx) => (
@@ -88,22 +88,22 @@ const academicExperiences = [
   {
     title: "Banco Desktop e Módulo de Transações Bancárias",
     description:
-      "Aplicação bancária com JavaFX, Spring e PostgreSQL, usando arquitetura Onion. Inclui categorização de transações e automação de pagamentos recorrentes."
+      "Sistema bancário desktop com JavaFX, Spring e PostgreSQL, estruturado pela arquitetura Onion. Funcionalidades incluem categorização de transações e automação de pagamentos recorrentes, priorizando código limpo e modularidade."
   },
   {
     title: "Space Invaders em C#",
     description:
-      "Jogo desenvolvido com WPF e LINQ para disciplina de Programação 3, contendo lógica de colisão, animações e estrutura modular."
+      "Jogo interativo desenvolvido com WPF e LINQ para disciplina de Programação 3. Implementa lógica de colisão, animações e estrutura modular, promovendo aprendizagem de design orientado a objetos."
   },
   {
     title: "Fórum usando C#, Java e React",
     description:
-      "Plataforma colaborativa com duas APIs (Java para login, C# para publicações). Integração via JWT e frontend React."
+      "Plataforma web colaborativa integrando duas APIs: Java para gerenciamento de usuários e autenticação, C# para publicações. Comunicação segura via JWT e frontend moderno em React."
   },
   {
     title: "UNO Online – React, Node.js e WebSockets",
     description:
-      "Recriação do UNO com lógica no Node.js, interface em React + Vite e multiplayer em tempo real via WebSockets."
+      "Recriação do clássico jogo UNO com lógica em Node.js e interface em React + Vite. Suporte a multiplayer em tempo real via WebSockets, garantindo interatividade e responsividade."
   }
 ];
 
@@ -111,21 +111,21 @@ const personalExperiences = [
   {
     title: "API de Autenticação em C#",
     description:
-      "API desenvolvida com Entity Framework, ASP.NET e BCrypt para autenticação segura e gerenciamento de permissões."
+      "API segura desenvolvida com ASP.NET, Entity Framework e BCrypt, gerenciando usuários, autenticação e permissões, seguindo boas práticas de segurança e arquitetura REST."
   },
   {
     title: "To-Do List em Java",
     description:
-      "Aplicação de tarefas utilizando MongoDB, com foco em persistência leve e rápida."
+      "Aplicação de gerenciamento de tarefas com persistência em MongoDB. Foco em performance, armazenamento eficiente e design orientado a objetos."
   },
   {
     title: "Contador de Dedos (C# + Python + EMGU)",
     description:
-      "Sistema que detecta dedos via câmera usando EMGU e Python, com interface em WPF."
+      "Sistema de visão computacional que captura imagens da câmera, detecta e conta dedos usando EMGU e Python, com interface em WPF e lógica modular."
   },
   {
     title: "Contador de Moedas em Java",
     description:
-      "Aplicação que identifica moedas por cor e circunferência usando visão computacional, calculando automaticamente o valor final."
+      "Aplicativo que identifica moedas por cor e circunferência utilizando visão computacional, calculando automaticamente o valor total, reforçando habilidades em Java e processamento de imagens."
   }
 ];

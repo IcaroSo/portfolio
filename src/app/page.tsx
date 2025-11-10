@@ -43,10 +43,18 @@ export default function Home() {
             Fullstack developer
           </h3>
           <div className="text-gray-300 mb-8 text-base sm:text-lg space-y-2">
-  <p>Desenvolvedor Fullstack apaixonado por criar soluções digitais escaláveis e de alto desempenho.</p>
-  <p>Experiência prática em Java, C#, Spring Boot, .NET, JavaScript e Node.js, com atuação em aplicações desktop e plataformas web integradas.</p>
-  <p>Sempre focado em qualidade de código, boas práticas de engenharia e experiências eficientes para o usuário.</p>
-  <p>Busco contribuir com projetos desafiadores enquanto continuo evoluindo minhas habilidades técnicas.</p>
+  <p>
+    Desenvolvedor <strong className="text-indigo-400">Fullstack</strong> apaixonado por criar soluções digitais <strong className="text-indigo-400">escaláveis</strong> e de <strong className="text-indigo-400">alto desempenho</strong>.
+  </p>
+  <p>
+    Experiência prática em <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">Spring Boot</strong>, <strong className="text-indigo-400">.NET</strong>, <strong className="text-indigo-400">JavaScript</strong> e <strong className="text-indigo-400">Node.js</strong>, com atuação em aplicações <strong className="text-indigo-400">desktop</strong> e plataformas <strong className="text-indigo-400">web integradas</strong>.
+  </p>
+  <p>
+    Sempre focado em <strong className="text-indigo-400">qualidade de código</strong>, <strong className="text-indigo-400">boas práticas de engenharia</strong> e <strong className="text-indigo-400">experiências eficientes para o usuário</strong>.
+  </p>
+  <p>
+    Busco contribuir com <strong className="text-indigo-400">projetos desafiadores</strong> enquanto continuo evoluindo minhas <strong className="text-indigo-400">habilidades técnicas</strong>.
+  </p>
 </div>
 
 
