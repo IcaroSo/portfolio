@@ -114,9 +114,9 @@ const personalExperiences = [
       "API segura desenvolvida com ASP.NET, Entity Framework e BCrypt, gerenciando usuários, autenticação e permissões, seguindo boas práticas de segurança e arquitetura REST."
   },
   {
-    title: "To-Do List em Java",
+    title: "To-Do App em C#",
     description:
-      "Aplicação de gerenciamento de tarefas com persistência em MongoDB. Foco em performance, armazenamento eficiente e design orientado a objetos."
+      "Aplicação de gerenciamento de tarefas construída com ASP.NET Core e PostgreSQL, oferecendo criação, leitura, atualização e exclusão de tarefas, organização por listas, autenticação de usuários e interface moderna e responsiva, seguindo boas práticas de desenvolvimento em C#."
   },
   {
     title: "Contador de Dedos (C# + Python + EMGU)",

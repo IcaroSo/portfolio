@@ -105,12 +105,12 @@ const projects: Project[] = [
     link: "https://github.com/IcaroSo/Uno-Game",
   },
   {
-    title: "To-Do List em Java",
-    description:
-      "Aplicação de gerenciamento de tarefas com persistência em MongoDB, focada em performance, organização de dados e experiência do usuário, utilizando boas práticas de programação orientada a objetos.",
-    image: "/images/todo.jpg",
-    link: "https://github.com/IcaroSo/ToDoApp/tree/develop",
-  },
+  title: "To-Do App em C#",
+  description:
+    "Aplicação de gerenciamento de tarefas construída com ASP.NET Core e PostgreSQL, oferecendo criação, leitura, atualização e exclusão de tarefas, organização por listas, autenticação de usuários e interface moderna e responsiva, seguindo boas práticas de desenvolvimento em C#.",
+  image: "/images/todo.jpg",
+  link: "https://github.com/IcaroSo/ToDoApp/tree/develop",
+},
   {
     title: "Authentication API em C#",
     description:
