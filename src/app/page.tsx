@@ -45,20 +45,20 @@ export default function Home() {
               Olá, eu sou <span className="text-indigo-800 text-4xl sm:text-4xl">Ícaro Sousa</span>
             </h1>
             <h3 className="text-2xl sm:text-2xl mb-4 text-blue-500">
-              Fullstack developer
+              Desenvolvedor FullStack
             </h3>
             <div className="text-gray-300 mb-8 text-base sm:text-lg space-y-2">
               <p>
-                Desenvolvedor <strong className="text-indigo-400">Fullstack</strong> apaixonado por criar soluções digitais <strong className="text-indigo-400">escaláveis</strong> e de <strong className="text-indigo-400">alto desempenho</strong>.
+                Desenvolvedor <strong className="text-indigo-400">FullStack</strong> especializado em construir <strong className="text-indigo-400">aplicações escaláveis</strong> e <strong className="text-indigo-400">interfaces modernas</strong>.
               </p>
               <p>
-                Experiência prática em <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">Spring Boot</strong>, <strong className="text-indigo-400">.NET</strong>, <strong className="text-indigo-400">JavaScript</strong> e <strong className="text-indigo-400">Node.js</strong>, com atuação em aplicações <strong className="text-indigo-400">desktop</strong> e plataformas <strong className="text-indigo-400">web integradas</strong>.
+                Estudante de Engenharia de Software com 3 anos de experiência prática na criação de APIs REST e sistemas backend focados em performance.
               </p>
               <p>
-                Sempre focado em <strong className="text-indigo-400">qualidade de código</strong>, <strong className="text-indigo-400">boas práticas de engenharia</strong> e <strong className="text-indigo-400">experiências eficientes para o usuário</strong>.
+                Domínio em <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong> e <strong className="text-indigo-400">Node.js</strong> usando <strong className="text-indigo-400">Spring Boot</strong> e <strong className="text-indigo-400">.NET</strong>. Modelador e otimizador de bancos de dados relacionais e não-relacionais. No frontend, crio experiências fluidas com <strong className="text-indigo-400">React</strong> e <strong className="text-indigo-400">Next.js</strong>.
               </p>
               <p>
-                Busco contribuir com <strong className="text-indigo-400">projetos desafiadores</strong> enquanto continuo evoluindo minhas <strong className="text-indigo-400">habilidades técnicas</strong>.
+                Trabalho focado em <strong className="text-indigo-400">Arquitetura de Software</strong>, POO e princípios SOLID, entregando código limpo, testável e manutenível.
               </p>
             </div>
 

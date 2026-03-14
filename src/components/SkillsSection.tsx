@@ -64,56 +64,35 @@ export default function SkillsSection() {
 
             {/* Descrição abaixo das bolhas */}
             <div className="flex flex-col items-center justify-center max-w-6xl px-6 sm:px-12 md:px-16 mt-12 text-center">
+
                 <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Backend & Desenvolvimento
+                    Linguagens & Backend
                 </h2>
                 <p className="leading-relaxed text-lg mb-6">
-                    Especialista em criar APIs{" "}
-                    <strong className="text-indigo-400">robustas</strong> e{" "}
-                    <strong className="text-indigo-400">escaláveis</strong> usando{" "}
-                    <strong className="text-indigo-400">Java</strong>,{" "}
-                    <strong className="text-indigo-400">C#</strong> e{" "}
-                    <strong className="text-indigo-400">Node.js</strong>. Experiência
-                    prática com frameworks{" "}
-                    <strong className="text-indigo-400">Spring Boot</strong> e{" "}
-                    <strong className="text-indigo-400">.NET</strong>, garantindo
-                    desempenho, segurança e manutenção de alto nível.
+                    Desenvolvimento de regras de negócio, APIs REST e arquiteturas escaláveis. Forte experiência com <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">Python</strong> e ecossistema <strong className="text-indigo-400">Node.js</strong>. Fluência em frameworks maduros como <strong className="text-indigo-400">Spring Boot</strong>, <strong className="text-indigo-400">.NET API</strong> e <strong className="text-indigo-400">NestJS</strong>.
                 </p>
 
                 <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Frontend & Desenvolvimento
+                    Frontend & Interfaces
                 </h2>
                 <p className="leading-relaxed text-lg mb-6">
-                    Atualmente aprimorando habilidades em{" "}
-                    <strong className="text-indigo-400">React.js</strong>,{" "}
-                    <strong className="text-indigo-400">JavaScript</strong>,{" "}
-                    <strong className="text-indigo-400">HTML</strong>,{" "}
-                    <strong className="text-indigo-400">CSS</strong> e{" "}
-                    <strong className="text-indigo-400">Tailwind CSS</strong> para criar
-                    interfaces modernas, responsivas e centradas no usuário.
-                </p>
-
-                <h2 className="text-2xl font-bold mb-4 text-blue-500">Banco de Dados</h2>
-                <p className="leading-relaxed text-lg mb-6">
-                    Gerencio e otimizo dados em{" "}
-                    <strong className="text-indigo-400">PostgreSQL</strong>,{" "}
-                    <strong className="text-indigo-400">MySQL</strong> e{" "}
-                    <strong className="text-indigo-400">MongoDB</strong>, criando soluções
-                    persistentes e eficientes para aplicações críticas.
+                    Construção de aplicações web modernas, SPAs dinâmicas e integração com múltiplos backends utilizando <strong className="text-indigo-400">React</strong>, <strong className="text-indigo-400">Next.js</strong> e focado em componentização via <strong className="text-indigo-400">JavaScript/TypeScript</strong> e estilização nativa/Tailwind.
                 </p>
 
                 <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Ferramentas & Workflow
+                    Bancos de Dados
+                </h2>
+                <p className="leading-relaxed text-lg mb-6">
+                    Modelagem relacional robusta em <strong className="text-indigo-400">PostgreSQL</strong> e <strong className="text-indigo-400">MySQL</strong>. Implementação de persistência ágil e flexível usando bancos não-relacionais como <strong className="text-indigo-400">MongoDB</strong>.
+                </p>
+
+                <h2 className="text-2xl font-bold mb-4 text-blue-500">
+                    Cloud, DevOps & Infraestrutura
                 </h2>
                 <p className="leading-relaxed text-lg">
-                    Experiência sólida com <strong className="text-indigo-400">Docker</strong>,{" "}
-                    <strong className="text-indigo-400">Docker Compose</strong> e
-                    versionamento de código com <strong className="text-indigo-400">Git</strong>,{" "}
-                    <strong className="text-indigo-400">GitHub</strong> e{" "}
-                    <strong className="text-indigo-400">GitLab</strong>. Atuação em equipes
-                    ágeis aplicando <strong className="text-indigo-400">Scrum</strong> para
-                    entregar soluções rápidas e de alta qualidade.
+                    Cultura de deploy eficiente adotando conteinerização com <strong className="text-indigo-400">Docker</strong> e orquestração leve via <strong className="text-indigo-400">Docker Compose</strong>. Vivência com ambientes <strong className="text-indigo-400">Linux</strong>, versionamento contínuo usando <strong className="text-indigo-400">Git/GitHub/GitLab</strong> e testes de integração de API utilizando <strong className="text-indigo-400">Postman/Insomnia</strong>.
                 </p>
+
             </div>
         </motion.section>
     );

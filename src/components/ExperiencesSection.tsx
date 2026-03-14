@@ -16,13 +16,13 @@ export default function ExperiencesSection() {
             {/* GRID PRINCIPAL */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl">
 
-                {/* ===== COLUNA ACADÊMICOS ===== */}
+                {/* ===== COLUNA PROFISSIONAL ===== */}
                 <div className="space-y-8">
                     <h2 className="text-2xl font-bold text-blue-400 mb-4 text-left">
-                        Experiências Acadêmicas
+                        Experiência Profissional
                     </h2>
 
-                    {academicExperiences.map((exp, idx) => (
+                    {professionalExperiences.map((exp, idx) => (
                         <div
                             key={idx}
                             className="
@@ -40,22 +40,23 @@ export default function ExperiencesSection() {
 "
                         >
                             <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
-                            <p className="text-gray-100 leading-relaxed">
+                            <h4 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h4>
+                            <p className="text-gray-200 leading-relaxed text-sm whitespace-pre-line">
                                 {exp.description}
                             </p>
                         </div>
                     ))}
                 </div>
 
-                {/* ===== COLUNA PESSOAIS ===== */}
+                {/* ===== COLUNA ACADÊMICOS & CERTIFICADOS ===== */}
                 <div className="space-y-8">
                     <h2 className="text-2xl font-bold text-blue-400 mb-4 text-left">
-                        Experiências Pessoais
+                        Formação Acadêmica
                     </h2>
 
-                    {personalExperiences.map((exp, idx) => (
+                    {academicExperiences.map((exp, idx) => (
                         <div
-                            key={idx}
+                            key={`acad-${idx}`}
                             className="
   p-6 rounded-2xl
   bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
@@ -71,7 +72,8 @@ export default function ExperiencesSection() {
 "
                         >
                             <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
-                            <p className="text-gray-100 leading-relaxed">
+                            <h4 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h4>
+                            <p className="text-gray-200 leading-relaxed text-sm whitespace-pre-line">
                                 {exp.description}
                             </p>
                         </div>
@@ -79,54 +81,90 @@ export default function ExperiencesSection() {
                 </div>
 
             </div>
+
+            {/* ===== SESSÃO DE CERTIFICADOS (LARGURA TOTAL) ===== */}
+            <div id="certificates" className="w-full max-w-6xl mt-16 space-y-6 scroll-mt-24">
+                <h2 className="text-2xl font-bold text-blue-400 text-center">
+                    Certificados
+                </h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {certificates.map((exp, idx) => (
+                        <div
+                            key={`cert-${idx}`}
+                            className="
+  p-5 rounded-2xl
+  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
+  shadow-[0_0_15px_#4E03E0]
+  text-left
+  transition-all duration-300 ease-out
+
+  /* ✅ HOVER ROXO IGUAL AO BOTÃO */
+  hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+  hover:shadow-[0_0_30px_#4E03E0]
+  hover:scale-[1.03] 
+  hover:-translate-y-2
+"
+                        >
+                            <h3 className="text-base font-bold text-white mb-1">{exp.title}</h3>
+                            <h4 className="text-xs font-semibold text-indigo-300 mb-2">{exp.role} | {exp.period}</h4>
+                            <p className="text-gray-200 leading-relaxed text-xs whitespace-pre-line">
+                                {exp.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </motion.section>
     );
 }
 
 /* ===== DATA SEPARADA ===== */
 
-const academicExperiences = [
+const professionalExperiences = [
     {
-        title: "Banco Desktop e Módulo de Transações Bancárias",
+        title: "Projeto Voluntário (Museu de Histórias)",
+        role: "Desenvolvedor Backend",
+        period: "Jan 2026 - Atual",
         description:
-            "Sistema bancário desktop com JavaFX, Spring e PostgreSQL, estruturado pela arquitetura Onion. Funcionalidades incluem categorização de transações e automação de pagamentos recorrentes, priorizando código limpo e modularidade."
-    },
-    {
-        title: "Space Invaders em C#",
-        description:
-            "Jogo interativo desenvolvido com WPF e LINQ para disciplina de Programação 3. Implementa lógica de colisão, animações e estrutura modular, promovendo aprendizagem de design orientado a objetos."
-    },
-    {
-        title: "Fórum usando C#, Java e React",
-        description:
-            "Plataforma web colaborativa integrando duas APIs: Java para gerenciamento de usuários e autenticação, C# para publicações. Comunicação segura via JWT e frontend moderno em React."
-    },
-    {
-        title: "UNO Online – React, Node.js e WebSockets",
-        description:
-            "Recriação do clássico jogo UNO com lógica em Node.js e interface em React + Vite. Suporte a multiplayer em tempo real via WebSockets, garantindo interatividade e responsividade."
+            "Atuação como desenvolvedor backend na construção e manutenção de sistema para gestão e disponibilização de informações do museu.\n\n• Desenvolvimento de APIs REST utilizando NestJS e TypeScript.\n• Implementação de testes automatizados com Jest, garantindo maior confiabilidade e manutenção do sistema."
     }
 ];
 
-const personalExperiences = [
+const academicExperiences = [
     {
-        title: "API de Autenticação em C#",
+        title: "Engenharia de Software",
+        role: "Jala University",
+        period: "Jan 2024 - Jan 2028",
         description:
-            "API segura desenvolvida com ASP.NET, Entity Framework e BCrypt, gerenciando usuários, autenticação e permissões, seguindo boas práticas de segurança e arquitetura REST."
+            "Destaque Acadêmico: Dean’s List — Term 1 e Term 2 (2024), Term 2 (2025).\n\nPrincipais conteúdos: C#, Java, JavaScript/TypeScript, Spring Boot, .NET Core, Node.js, React e NestJS."
     },
     {
-        title: "To-Do List em Java",
+        title: "Análise e Desenvolvimento de Sistemas",
+        role: "UNIASSELVI",
+        period: "Jan 2026 - Jul 2028",
         description:
-            "Aplicação de gerenciamento de tarefas com persistência em MongoDB. Foco em performance, armazenamento eficiente e design orientado a objetos."
+            "Principais conteúdos: Algoritmos, POO, Estrutura de Dados, Arquitetura de Sistemas, Desenvolvimento Fullstack e construção de APIs REST."
+    }
+];
+
+const certificates = [
+    {
+        title: "C# Completo",
+        role: "Udemy",
+        period: "2025",
+        description: "Programação Orientada a Objetos + Projetos (38h)"
     },
     {
-        title: "Contador de Dedos (C# + Python + EMGU)",
-        description:
-            "Sistema de visão computacional que captura imagens da câmera, detecta e conta dedos usando EMGU e Python, com interface em WPF e lógica modular."
+        title: "Java Completo",
+        role: "Udemy",
+        period: "2025",
+        description: "Programação Orientada a Objetos + Projetos (54.5h)"
     },
     {
-        title: "Contador de Moedas em Java",
-        description:
-            "Aplicativo que identifica moedas por cor e circunferência utilizando visão computacional, calculando automaticamente o valor total, reforçando habilidades em Java e processamento de imagens."
+        title: "Docker para Desenvolvedores",
+        role: "Udemy",
+        period: "2025",
+        description: "Docker Swarm e Kubernetes (13.5h)"
     }
 ];
