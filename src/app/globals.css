@@ -4,6 +4,10 @@
   --font-josefin: "Josefin Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-josefin);
   margin: 0;
