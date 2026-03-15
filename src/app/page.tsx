@@ -64,15 +64,30 @@ export default function Home() {
 
 
             {/* ÍCONES */}
-            <div className="flex items-center justify-center lg:justify-start gap-8 sm:gap-12">
+            <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8">
               <a
                 className="px-4 py-4 text-white rounded-full transition
                           shadow-[0_0_15px_#4E03E0]
                           bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
+                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
+                          hover:scale-110"
+                href="/ICARO_DE_SOUSA_RODRIGUES_CV.pdf"
+                download="Icaro_Sousa_CV.pdf"
+                title="Baixar Currículo"
+              >
+                <Image src="/icons/home/icons8-download-100.png" alt="Download CV" width={32} height={32} />
+              </a>
+
+              <a
+                className="px-4 py-4 text-white rounded-full transition
+                          shadow-[0_0_15px_#4E03E0]
+                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
+                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
+                          hover:scale-110"
                 href="https://github.com/IcaroSo"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="GitHub"
               >
                 <Image src="/icons/home/github-mark-white.png" alt="GitHub" width={32} height={32} />
               </a>
@@ -81,10 +96,12 @@ export default function Home() {
                 className="px-4 py-4 text-white rounded-full transition
                           shadow-[0_0_15px_#4E03E0]
                           bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
+                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
+                          hover:scale-110"
                 href="https://linkedin.com/in/icrusousa"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="LinkedIn"
               >
                 <Image src="/icons/home/InBug-White.png" alt="LinkedIn" width={32} height={32} />
               </a>
@@ -93,8 +110,10 @@ export default function Home() {
                 className="px-4 py-4 text-white rounded-full transition
                           shadow-[0_0_15px_#4E03E0]
                           bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]"
+                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
+                          hover:scale-110"
                 href="mailto:icarosa20rs@gmail.com"
+                title="Enviar E-mail"
               >
                 <Image src="/icons/home/icons8-gmail-250.png" alt="E-mail" width={32} height={32} />
               </a>
