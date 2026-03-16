@@ -6,21 +6,24 @@ import { motion } from "framer-motion";
 export default function ExperiencesSection() {
     return (
         <motion.section
-            id="experiences"
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
             className="flex flex-col items-center justify-center min-h-[80vh] px-8 sm:px-12 md:px-16 lg:px-24 py-16"
         >
+            <h2 id="experiences" className="text-3xl font-bold text-blue-400 mb-12 text-center w-full scroll-mt-24 sm:scroll-mt-28">
+                Trajetória
+            </h2>
+
             {/* GRID PRINCIPAL */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-6xl mb-12">
 
                 {/* ===== COLUNA PROFISSIONAL ===== */}
                 <div className="space-y-8">
-                    <h2 className="text-2xl font-bold text-blue-400 mb-4 text-left">
-                        Experiência Profissional
-                    </h2>
+                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left border-b border-indigo-900/50 pb-2">
+                        Profissional
+                    </h3>
 
                     {professionalExperiences.map((exp, idx) => (
                         <div
@@ -39,8 +42,8 @@ export default function ExperiencesSection() {
   hover:-translate-y-2
 "
                         >
-                            <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
-                            <h4 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h4>
+                            <h4 className="text-xl font-bold text-white mb-1">{exp.title}</h4>
+                            <h5 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h5>
                             <p className="text-gray-200 leading-relaxed text-sm whitespace-pre-line">
                                 {exp.description}
                             </p>
@@ -48,11 +51,11 @@ export default function ExperiencesSection() {
                     ))}
                 </div>
 
-                {/* ===== COLUNA ACADÊMICOS & CERTIFICADOS ===== */}
+                {/* ===== COLUNA ACADÊMICOS ===== */}
                 <div className="space-y-8">
-                    <h2 className="text-2xl font-bold text-blue-400 mb-4 text-left">
-                        Formação Acadêmica
-                    </h2>
+                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left border-b border-indigo-900/50 pb-2">
+                        Acadêmica
+                    </h3>
 
                     {academicExperiences.map((exp, idx) => (
                         <div
@@ -71,8 +74,8 @@ export default function ExperiencesSection() {
   hover:-translate-y-2
 "
                         >
-                            <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
-                            <h4 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h4>
+                            <h4 className="text-xl font-bold text-white mb-1">{exp.title}</h4>
+                            <h5 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h5>
                             <p className="text-gray-200 leading-relaxed text-sm whitespace-pre-line">
                                 {exp.description}
                             </p>
@@ -83,10 +86,10 @@ export default function ExperiencesSection() {
             </div>
 
             {/* ===== SESSÃO DE CERTIFICADOS (LARGURA TOTAL) ===== */}
-            <div id="certificates" className="w-full max-w-6xl mt-16 space-y-6 scroll-mt-24">
-                <h2 className="text-2xl font-bold text-blue-400 text-center">
-                    Certificados
-                </h2>
+            <div className="w-full max-w-6xl space-y-8 mt-4">
+                <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-center border-b border-indigo-900/50 pb-2">
+                    Cursos e Certificações
+                </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {certificates.map((exp, idx) => (
@@ -106,8 +109,8 @@ export default function ExperiencesSection() {
   hover:-translate-y-2
 "
                         >
-                            <h3 className="text-base font-bold text-white mb-1">{exp.title}</h3>
-                            <h4 className="text-xs font-semibold text-indigo-300 mb-2">{exp.role} | {exp.period}</h4>
+                            <h4 className="text-base font-bold text-white mb-1">{exp.title}</h4>
+                            <h5 className="text-xs font-semibold text-indigo-300 mb-2">{exp.role} | {exp.period}</h5>
                             <p className="text-gray-200 leading-relaxed text-xs whitespace-pre-line">
                                 {exp.description}
                             </p>

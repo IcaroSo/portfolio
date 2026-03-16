@@ -14,7 +14,7 @@ export default function Home() {
         initial={{ opacity: 0, y: -40 }}   // começa acima e invisível
         animate={{ opacity: 1, y: 0 }}     // desce até o lugar
         transition={{ duration: 1.4, ease: "easeOut" }} // bem devagar
-        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-24"
+        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-24 scroll-mt-24 sm:scroll-mt-28"
       >
         {/* flex-column até telas grandes */}
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12">

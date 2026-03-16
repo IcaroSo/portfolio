@@ -15,14 +15,13 @@ interface Project {
 export default function ProjectsSection() {
     return (
         <motion.section
-            id="projects"
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
             className="flex flex-col items-center justify-center min-h-[70vh] px-6 sm:px-10 md:px-16 lg:px-24 py-16"
         >
-            <h2 className="text-3xl font-bold text-blue-400 mb-12 text-center">
+            <h2 id="projects" className="text-3xl font-bold text-blue-400 mb-12 text-center scroll-mt-24 sm:scroll-mt-28">
                 Projetos
             </h2>
 

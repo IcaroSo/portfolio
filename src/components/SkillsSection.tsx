@@ -40,14 +40,13 @@ export default function SkillsSection() {
 
     return (
         <motion.section
-            id="skills"
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
             className="flex flex-col items-center justify-start min-h-[100vh] px-8 sm:px-12 md:px-16 lg:px-24 py-16"
         >
-            <h2 className="text-3xl font-bold text-blue-400 mb-12 text-center w-full">
+            <h2 id="skills" className="text-3xl font-bold text-blue-400 mb-12 text-center w-full scroll-mt-24 sm:scroll-mt-28">
                 Skills
             </h2>
 
