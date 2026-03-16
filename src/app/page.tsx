@@ -122,8 +122,11 @@ export default function Home() {
         </div>
       </motion.section>
 
+      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
       <SkillsSection />
+      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
       <ExperiencesSection />
+      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
       <ProjectsSection />
     </div>
   );

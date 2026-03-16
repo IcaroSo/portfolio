@@ -21,7 +21,7 @@ export default function ExperiencesSection() {
 
                 {/* ===== COLUNA PROFISSIONAL ===== */}
                 <div className="space-y-8">
-                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left border-b border-indigo-900/50 pb-2">
+                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left">
                         Profissional
                     </h3>
 
@@ -53,7 +53,7 @@ export default function ExperiencesSection() {
 
                 {/* ===== COLUNA ACADÊMICOS ===== */}
                 <div className="space-y-8">
-                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left border-b border-indigo-900/50 pb-2">
+                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left">
                         Acadêmica
                     </h3>
 
@@ -86,8 +86,8 @@ export default function ExperiencesSection() {
             </div>
 
             {/* ===== SESSÃO DE CERTIFICADOS (LARGURA TOTAL) ===== */}
-            <div className="w-full max-w-6xl space-y-8 mt-4">
-                <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-center border-b border-indigo-900/50 pb-2">
+            <div className="w-full max-w-6xl space-y-8">
+                <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-center">
                     Cursos e Certificações
                 </h3>
 
@@ -169,5 +169,29 @@ const certificates = [
         role: "Udemy",
         period: "2025",
         description: "Docker Swarm e Kubernetes (13.5h)"
+    },
+    {
+        title: "Programa Lighthouse – Ciclo Preparatório",
+        role: "Indicium",
+        period: "2026",
+        description: "Fundamentos de Dados, Análise de Problemas e Aplicações em Data (60h)"
+    },
+    {
+        title: "Dean’s List — Term 1 e Term 2 (2024), Term 2 (2025)",
+        role: "Jala University",
+        period: "2024, 2025",
+        description: "Destaque Acadêmico"
+    },
+    {
+        title: "Desenvolvimento Web Completo",
+        role: "Udemy",
+        period: "2025",
+        description: "Desenvolvimento Web Completo – 20 Cursos + 20 Projetos (120h)"
+    },
+    {
+        title: "JavaScript e TypeScript do Básico ao Avançado",
+        role: "Udemy",
+        period: "2026",
+        description: "JavaScript e TypeScript do Básico ao Avançado – JS + TS (146h)"
     }
 ];
