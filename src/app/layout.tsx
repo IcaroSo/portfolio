@@ -24,7 +24,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br" className={`${josefin.variable} ${minecraftFont.variable}`}>
-      <body className="font-[var(--font-josefin)] bg-[linear-gradient(180deg,var(--background)_0%,var(--background-secondary)_58%,var(--background-deep)_100%)] text-foreground min-h-screen">
+      <body
+        suppressHydrationWarning
+        className="font-[var(--font-josefin)] bg-[linear-gradient(180deg,var(--background)_0%,var(--background-secondary)_58%,var(--background-deep)_100%)] text-foreground min-h-screen"
+      >
         <Navbar />
         <main className="px-4 sm:px-6 md:px-8 py-8 sm:py-12">{children}</main>
       </body>
