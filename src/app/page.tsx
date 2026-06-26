@@ -20,10 +20,10 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
 
           {/* FOTO */}
-          <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden bg-gradient-to-b from-indigo-700 to-blue-900 shadow-[0_0_25px_#4338ca] animate-float">
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black px-4 py-1.5 opacity-60 ">
+          <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden bg-[linear-gradient(180deg,var(--primary-active)_0%,var(--surface)_100%)] shadow-[0_0_25px_var(--shadow-purple-strong)] animate-float">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-background px-4 py-1.5 opacity-70 ">
               <h2
-                className="text-sm text-white font-bold tracking-wider drop-shadow-[0_0_6px_#ffffff]"
+                className="text-sm text-foreground font-bold tracking-wider drop-shadow-[0_0_6px_var(--text-glow)]"
                 style={{ fontFamily: "var(--font-minecraft)" }}
               >
                 Icru
@@ -42,12 +42,12 @@ export default function Home() {
           {/* TEXTO */}
           <div className="max-w-lg text-left mt-10 lg:mt-0">
             <h1 className="text-3xl sm:text-3xl font-semibold mb-2 whitespace-nowrap">
-              Olá, eu sou <span className="text-indigo-800 text-4xl sm:text-4xl">Ícaro Sousa</span>
+              Olá, eu sou <span className="text-accent text-4xl sm:text-4xl">Ícaro Sousa</span>
             </h1>
-            <h3 className="text-2xl sm:text-2xl mb-4 text-blue-500">
+            <h3 className="text-2xl sm:text-2xl mb-4 text-accent">
               Desenvolvedor Full Stack
             </h3>
-            <div className="text-gray-300 mb-8 text-base sm:text-lg space-y-2">
+            <div className="text-muted mb-8 text-base sm:text-lg space-y-2">
               <p>
                 Desenvolvo aplicações web, interfaces e APIs, atuando entre Front-end e Back-end conforme as necessidades de cada produto.
               </p>
@@ -55,7 +55,7 @@ export default function Home() {
                 Sou estudante de Engenharia de Software e reúno cerca de três anos de experiência prática em desenvolvimento, combinando atuação profissional, projetos freelancers e projetos acadêmicos. Minha trajetória inclui sistemas corporativos, regras de negócio, integrações, autenticação, bancos de dados, testes e publicação de aplicações.
               </p>
               <p>
-                Trabalho principalmente com <strong className="text-indigo-400">React</strong>, <strong className="text-indigo-400">Next.js</strong>, <strong className="text-indigo-400">TypeScript</strong>, <strong className="text-indigo-400">Node.js</strong>, <strong className="text-indigo-400">NestJS</strong> e <strong className="text-indigo-400">PostgreSQL</strong>. Também possuo experiência prática com <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">ASP.NET Core</strong>, <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">Spring Boot</strong>, <strong className="text-indigo-400">Docker</strong> e desenvolvimento de APIs REST.
+                Trabalho principalmente com <strong className="text-tech">React</strong>, <strong className="text-tech">Next.js</strong>, <strong className="text-tech">TypeScript</strong>, <strong className="text-tech">Node.js</strong>, <strong className="text-tech">NestJS</strong> e <strong className="text-tech">PostgreSQL</strong>. Também possuo experiência prática com <strong className="text-tech">C#</strong>, <strong className="text-tech">ASP.NET Core</strong>, <strong className="text-tech">Java</strong>, <strong className="text-tech">Spring Boot</strong>, <strong className="text-tech">Docker</strong> e desenvolvimento de APIs REST.
               </p>
               <p>
                 Busco construir soluções organizadas, testáveis e fáceis de manter, aplicando componentização, separação de responsabilidades, orientação a objetos e princípios SOLID de acordo com as necessidades de cada projeto.
@@ -65,11 +65,12 @@ export default function Home() {
             {/* ÍCONES */}
             <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8">
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5"
                 href="/ICARO_DE_SOUSA_RODRIGUES_CV.pdf"
                 download="Icaro_Sousa_CV.pdf"
                 title="Baixar Currículo"
@@ -78,11 +79,12 @@ export default function Home() {
               </a>
 
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5"
                 href="https://github.com/IcaroSo"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -92,11 +94,12 @@ export default function Home() {
               </a>
 
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5"
                 href="https://linkedin.com/in/icrusousa"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -106,11 +109,12 @@ export default function Home() {
               </a>
 
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5"
                 href="mailto:icarosa20rs@gmail.com"
                 title="Enviar E-mail"
               >
@@ -121,11 +125,11 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
+      <hr className="border-border-default w-1/3 mx-auto" />
       <SkillsSection />
-      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
+      <hr className="border-border-default w-1/3 mx-auto" />
       <ExperiencesSection />
-      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
+      <hr className="border-border-default w-1/3 mx-auto" />
       <ProjectsSection />
     </div>
   );

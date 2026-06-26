@@ -17,7 +17,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full sticky top-0 z-50 md:bg-[#04001b]/80 md:backdrop-blur-md md:border-b md:border-indigo-900/30">
+    <nav className="w-full sticky top-0 z-50 md:bg-background/85 md:backdrop-blur-md md:border-b md:border-border-default">
       
       {/* Desktop Links (visível a partir de md) */}
       <div className="hidden md:flex items-center justify-center px-6 sm:px-8 py-4 sm:py-5 gap-6 sm:gap-8 md:gap-10 text-base sm:text-lg font-medium">
@@ -29,8 +29,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`relative pb-1 transition-all duration-200 ${isActive
-                ? "text-indigo-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-indigo-600 after:rounded after:shadow-[0_0_20px_#3b82f6]"
-                : "text-white hover:text-blue-500"
+                ? "text-accent after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-accent after:rounded after:shadow-[0_0_18px_var(--shadow-purple)]"
+                : "text-foreground hover:text-accent-hover"
                 }`}
             >
               {link.name}
@@ -43,7 +43,7 @@ export default function Navbar() {
       <div className="md:hidden absolute top-4 right-4 sm:top-5 sm:right-6 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-[#04001b]/90 backdrop-blur-md border border-indigo-500/30 shadow-[0_0_15px_rgba(79,70,229,0.3)] text-white hover:text-indigo-400 focus:outline-none transition-all"
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-background/90 backdrop-blur-md border border-border-default shadow-[0_10px_24px_var(--shadow-purple)] text-foreground hover:text-accent-hover focus:outline-none transition-all"
           aria-label="Toggle menu"
         >
           {isOpen ? (
@@ -62,7 +62,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 right-4 sm:right-6 w-56 bg-[#04001b]/95 backdrop-blur-xl border border-indigo-900/50 rounded-2xl shadow-2xl overflow-hidden py-5 z-40">
+        <div className="md:hidden absolute top-20 right-4 sm:right-6 w-56 bg-background/95 backdrop-blur-xl border border-border-default rounded-2xl shadow-2xl overflow-hidden py-5 z-40">
           <div className="flex flex-col items-center gap-5 text-base font-medium">
             {links.map((link) => {
               const isActive = pathname === link.href;
@@ -73,8 +73,8 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`relative pb-1 transition-all duration-200 ${isActive
-                    ? "text-indigo-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-indigo-600 after:rounded after:shadow-[0_0_20px_#3b82f6]"
-                    : "text-white hover:text-blue-500"
+                    ? "text-accent after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-accent after:rounded after:shadow-[0_0_18px_var(--shadow-purple)]"
+                    : "text-foreground hover:text-accent-hover"
                     }`}
                 >
                   {link.name}

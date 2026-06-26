@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Project {
     title: string;
@@ -16,32 +17,99 @@ interface Project {
     restrictionLabel?: string;
 }
 
+const projectsPerPage = 2;
+
 const restrictedMessage =
     "Código-fonte e detalhes técnicos não estão disponíveis publicamente devido às restrições do projeto.";
 
 export default function ProjectsSection() {
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
+    const startIndex = currentPage * projectsPerPage;
+    const visibleProjects = projects.slice(startIndex, startIndex + projectsPerPage);
+    const displayedStart = startIndex + 1;
+    const displayedEnd = Math.min(startIndex + visibleProjects.length, projects.length);
+
+    const goToPreviousPage = () => {
+        setCurrentPage((page) => (page === 0 ? totalPages - 1 : page - 1));
+    };
+
+    const goToNextPage = () => {
+        setCurrentPage((page) => (page === totalPages - 1 ? 0 : page + 1));
+    };
+
     return (
         <motion.section
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
-            className="flex flex-col items-center justify-center min-h-[70vh] px-6 sm:px-10 md:px-16 lg:px-24 py-16"
+            className="flex min-h-[70vh] flex-col items-center justify-center px-6 py-16 sm:px-10 md:px-16 lg:px-24"
         >
-            <h2 id="projects" className="text-3xl font-bold text-blue-400 mb-12 text-center scroll-mt-24 sm:scroll-mt-28">
+            <h2 id="projects" className="mb-10 scroll-mt-24 text-center text-3xl font-bold text-accent sm:scroll-mt-28">
                 Projetos
             </h2>
 
-            <div
-                className="
-          grid gap-10 w-full max-w-6xl
-          grid-cols-1
-          md:grid-cols-2
-        "
-            >
-                {projects.map((project) => (
-                    <ProjectCard key={project.title} project={project} />
-                ))}
+            <div className="w-full max-w-6xl">
+                <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-center text-sm font-semibold text-muted sm:text-left">
+                        {displayedStart}-{displayedEnd} de {projects.length}
+                    </p>
+
+                    <div className="flex items-center justify-center gap-3">
+                        <button
+                            type="button"
+                            onClick={goToPreviousPage}
+                            aria-label="Projetos anteriores"
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus:outline-none"
+                        >
+                            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="m15 18-6-6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div className="flex min-w-24 items-center justify-center gap-2" aria-label="Paginas de projetos">
+                            {Array.from({ length: totalPages }).map((_, pageIndex) => (
+                                <button
+                                    key={pageIndex}
+                                    type="button"
+                                    onClick={() => setCurrentPage(pageIndex)}
+                                    aria-label={`Ir para pagina ${pageIndex + 1} de projetos`}
+                                    className={`h-2.5 rounded-full transition-all ${currentPage === pageIndex ? "w-8 bg-accent" : "w-2.5 bg-accent-muted hover:bg-accent-hover"}`}
+                                />
+                            ))}
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={goToNextPage}
+                            aria-label="Proximos projetos"
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus:outline-none"
+                        >
+                            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div className="relative overflow-hidden px-1 py-2">
+                    <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                            key={currentPage}
+                            initial={{ opacity: 0, x: 48 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -48 }}
+                            transition={{ duration: 0.35, ease: "easeOut" }}
+                            className="grid w-full grid-cols-1 gap-8 md:grid-cols-2"
+                        >
+                            {visibleProjects.map((project) => (
+                                <ProjectCard key={project.title} project={project} />
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
         </motion.section>
     );
@@ -53,11 +121,11 @@ function ProjectCard({ project }: { project: Project }) {
             className="
         flex flex-col
         group relative overflow-hidden rounded-2xl 
-        bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-        shadow-[0_0_20px_#4E03E0]
+        border border-border-default bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-elevated)_100%)]
+        shadow-[0_14px_34px_var(--shadow-purple)]
         transition-all duration-300 ease-out
-        lg:hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-        lg:hover:shadow-[0_0_35px_#4E03E0]
+        lg:hover:bg-[linear-gradient(135deg,var(--surface-hover)_0%,var(--surface-hover-elevated)_100%)]
+        lg:hover:shadow-[0_18px_42px_var(--shadow-purple-strong)]
         lg:hover:scale-[1.04]
         lg:hover:-translate-y-2
       "
@@ -71,12 +139,12 @@ function ProjectCard({ project }: { project: Project }) {
                         className="object-cover transition-all duration-300 lg:group-hover:scale-110"
                     />
                 ) : (
-                    <div className="flex h-full w-full items-end bg-[radial-gradient(circle_at_top_left,#6C34E8,transparent_38%),linear-gradient(135deg,#1a0648,#2A027A_48%,#04001b)] p-5">
+                    <div className="flex h-full w-full items-end bg-[radial-gradient(circle_at_top_left,var(--primary-muted),transparent_42%),linear-gradient(135deg,var(--surface),var(--surface-elevated)_52%,var(--background))] p-5">
                         <div>
-                            <span className="text-xs font-semibold uppercase tracking-wider text-indigo-200">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-muted">
                                 {project.status}
                             </span>
-                            <p className="mt-2 text-xl font-bold text-white">
+                            <p className="mt-2 text-xl font-bold text-foreground">
                                 {project.title}
                             </p>
                         </div>
@@ -85,23 +153,23 @@ function ProjectCard({ project }: { project: Project }) {
             </div>
 
             <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">{project.title}</h3>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="text-xs font-semibold px-2 py-1 rounded bg-black/20 text-indigo-100 border border-indigo-300/30">
+                    <span className="text-xs font-semibold px-2 py-1 rounded bg-background/40 text-foreground border border-border-default">
                         {project.category}
                     </span>
-                    <span className="text-xs font-semibold px-2 py-1 rounded bg-indigo-950/60 text-indigo-200 border border-indigo-700/50">
+                    <span className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-muted border border-border-default">
                         {project.status}
                     </span>
                     {project.repositoryUrl && (
-                        <span className="text-xs font-semibold px-2 py-1 rounded bg-indigo-900/50 text-indigo-300 border border-indigo-700/50">
+                        <span className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-accent-hover border border-border-default">
                             Repositório público
                         </span>
                     )}
                     {project.isRestricted && (
                         <span
-                            className="text-xs font-semibold px-2 py-1 rounded bg-indigo-900/50 text-indigo-300 border border-indigo-700/50"
+                            className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-accent-hover border border-border-default"
                             title={restrictedMessage}
                         >
                             {project.restrictionLabel ?? "Projeto restrito"}
@@ -111,18 +179,18 @@ function ProjectCard({ project }: { project: Project }) {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
-                        <span key={tag} className="text-xs font-semibold px-2 py-1 rounded bg-indigo-900/50 text-indigo-300 border border-indigo-700/50">
+                        <span key={tag} className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-accent-hover border border-border-default">
                             {tag}
                         </span>
                     ))}
                 </div>
 
-                <p className="text-sm text-gray-200 leading-relaxed mb-5 flex-grow">
+                <p className="text-sm text-muted leading-relaxed mb-5 flex-grow">
                     {project.description}
                 </p>
 
                 {!project.repositoryUrl && project.isRestricted && (
-                    <p className="text-xs text-indigo-100/90 leading-relaxed mb-5 rounded-lg border border-indigo-700/50 bg-black/20 px-3 py-2">
+                    <p className="text-xs text-muted leading-relaxed mb-5 rounded-lg border border-border-default bg-background/40 px-3 py-2">
                         {restrictedMessage}
                     </p>
                 )}
@@ -135,9 +203,9 @@ function ProjectCard({ project }: { project: Project }) {
                             rel="noopener noreferrer"
                             className="
                                 inline-block px-5 py-2 rounded-lg
-                                bg-indigo-500 hover:bg-indigo-600
-                                text-white font-semibold text-sm
-                                shadow-[0_0_12px_#4E03E0]
+                                bg-accent hover:bg-accent-hover
+                                text-foreground font-semibold text-sm
+                                shadow-[0_10px_24px_var(--shadow-purple)]
                                 transition w-full text-center
                             "
                         >

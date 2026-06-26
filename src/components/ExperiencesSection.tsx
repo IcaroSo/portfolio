@@ -11,7 +11,7 @@ export default function ExperiencesSection() {
             transition={{ duration: 1.4, ease: "easeOut" }}
             className="flex flex-col items-center justify-center min-h-[80vh] px-8 sm:px-12 md:px-16 lg:px-24 py-16"
         >
-            <h2 id="experiences" className="text-3xl font-bold text-blue-400 mb-12 text-center w-full scroll-mt-24 sm:scroll-mt-28">
+            <h2 id="experiences" className="text-3xl font-bold text-accent mb-12 text-center w-full scroll-mt-24 sm:scroll-mt-28">
                 Trajetória
             </h2>
 
@@ -20,7 +20,7 @@ export default function ExperiencesSection() {
 
                 {/* ===== COLUNA PROFISSIONAL ===== */}
                 <div className="space-y-8">
-                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left">
+                    <h3 className="text-2xl font-bold text-accent-hover mb-4 text-left">
                         Profissional
                     </h3>
 
@@ -29,21 +29,21 @@ export default function ExperiencesSection() {
                             key={idx}
                             className="
   p-6 rounded-2xl
-  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-  shadow-[0_0_15px_#4E03E0]
+  border border-border-default bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-elevated)_100%)]
+  shadow-[0_14px_34px_var(--shadow-purple)]
   text-left
   transition-all duration-300 ease-out
 
   /* ✅ HOVER ROXO IGUAL AO BOTÃO */
-  hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-  hover:shadow-[0_0_30px_#4E03E0]
+  hover:bg-[linear-gradient(135deg,var(--surface-hover)_0%,var(--surface-hover-elevated)_100%)]
+  hover:shadow-[0_18px_42px_var(--shadow-purple-strong)]
   hover:scale-[1.03] 
   hover:-translate-y-2
 "
                         >
-                            <h4 className="text-xl font-bold text-white mb-1">{exp.title}</h4>
-                            <h5 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h5>
-                            <p className="text-gray-200 leading-relaxed text-sm whitespace-pre-line">
+                            <h4 className="text-xl font-bold text-foreground mb-1">{exp.title}</h4>
+                            <h5 className="text-sm font-semibold text-accent-hover mb-3">{exp.role} | {exp.period}</h5>
+                            <p className="text-muted leading-relaxed text-sm whitespace-pre-line">
                                 {exp.description}
                             </p>
                         </div>
@@ -52,7 +52,7 @@ export default function ExperiencesSection() {
 
                 {/* ===== COLUNA ACADÊMICOS ===== */}
                 <div className="space-y-8">
-                    <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-left">
+                    <h3 className="text-2xl font-bold text-accent-hover mb-4 text-left">
                         Acadêmica
                     </h3>
 
@@ -61,21 +61,21 @@ export default function ExperiencesSection() {
                             key={`acad-${idx}`}
                             className="
   p-6 rounded-2xl
-  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-  shadow-[0_0_15px_#4E03E0]
+  border border-border-default bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-elevated)_100%)]
+  shadow-[0_14px_34px_var(--shadow-purple)]
   text-left
   transition-all duration-300 ease-out
 
   /* ✅ HOVER ROXO IGUAL AO BOTÃO */
-  hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-  hover:shadow-[0_0_30px_#4E03E0]
+  hover:bg-[linear-gradient(135deg,var(--surface-hover)_0%,var(--surface-hover-elevated)_100%)]
+  hover:shadow-[0_18px_42px_var(--shadow-purple-strong)]
   hover:scale-[1.03] 
   hover:-translate-y-2
 "
                         >
-                            <h4 className="text-xl font-bold text-white mb-1">{exp.title}</h4>
-                            <h5 className="text-sm font-semibold text-indigo-300 mb-3">{exp.role} | {exp.period}</h5>
-                            <p className="text-gray-200 leading-relaxed text-sm whitespace-pre-line">
+                            <h4 className="text-xl font-bold text-foreground mb-1">{exp.title}</h4>
+                            <h5 className="text-sm font-semibold text-accent-hover mb-3">{exp.role} | {exp.period}</h5>
+                            <p className="text-muted leading-relaxed text-sm whitespace-pre-line">
                                 {exp.description}
                             </p>
                         </div>
@@ -86,7 +86,7 @@ export default function ExperiencesSection() {
 
             {/* ===== SESSÃO DE CERTIFICADOS (LARGURA TOTAL) ===== */}
             <div className="w-full max-w-6xl space-y-8">
-                <h3 className="text-2xl font-bold text-indigo-300 mb-4 text-center">
+                <h3 className="text-2xl font-bold text-accent-hover mb-4 text-center">
                     Cursos e Certificações
                 </h3>
 
@@ -96,21 +96,21 @@ export default function ExperiencesSection() {
                             key={`cert-${idx}`}
                             className="
   p-5 rounded-2xl
-  bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-  shadow-[0_0_15px_#4E03E0]
+  border border-border-default bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-elevated)_100%)]
+  shadow-[0_14px_34px_var(--shadow-purple)]
   text-left
   transition-all duration-300 ease-out
 
   /* ✅ HOVER ROXO IGUAL AO BOTÃO */
-  hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-  hover:shadow-[0_0_30px_#4E03E0]
+  hover:bg-[linear-gradient(135deg,var(--surface-hover)_0%,var(--surface-hover-elevated)_100%)]
+  hover:shadow-[0_18px_42px_var(--shadow-purple-strong)]
   hover:scale-[1.03] 
   hover:-translate-y-2
 "
                         >
-                            <h4 className="text-base font-bold text-white mb-1">{exp.title}</h4>
-                            <h5 className="text-xs font-semibold text-indigo-300 mb-2">{exp.role} | {exp.period}</h5>
-                            <p className="text-gray-200 leading-relaxed text-xs whitespace-pre-line">
+                            <h4 className="text-base font-bold text-foreground mb-1">{exp.title}</h4>
+                            <h5 className="text-xs font-semibold text-accent-hover mb-2">{exp.role} | {exp.period}</h5>
+                            <p className="text-muted leading-relaxed text-xs whitespace-pre-line">
                                 {exp.description}
                             </p>
                         </div>
