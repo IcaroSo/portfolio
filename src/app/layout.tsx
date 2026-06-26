@@ -19,7 +19,7 @@ export const metadata = {
   title: "Meu Portfólio",
   description: "Portfólio pessoal de Ícaro Sousa",
   icons: {
-    icon: "icons/aba/code.png",
+    icon: "/icons/aba/logo.png",
   },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
