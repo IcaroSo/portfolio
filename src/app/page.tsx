@@ -14,10 +14,10 @@ export default function Home() {
         initial={{ opacity: 0, y: -40 }}   // começa acima e invisível
         animate={{ opacity: 1, y: 0 }}     // desce até o lugar
         transition={{ duration: 1.4, ease: "easeOut" }} // bem devagar
-        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-24 scroll-mt-24 sm:scroll-mt-28"
+        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 scroll-mt-24 sm:scroll-mt-28"
       >
         {/* flex-column até telas grandes */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+        <div className="flex w-full max-w-6xl flex-col items-center justify-center gap-12 lg:flex-row lg:justify-start lg:gap-16 lg:px-16">
 
           {/* FOTO */}
           <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden bg-[linear-gradient(180deg,var(--primary-active)_0%,var(--surface)_100%)] shadow-[0_0_25px_var(--shadow-purple-strong)] animate-float">
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
 
           {/* TEXTO */}
-          <div className="max-w-lg text-left mt-10 lg:mt-0">
+          <div className="mt-10 w-full max-w-2xl text-left lg:mt-0">
             <h1 className="text-3xl sm:text-3xl font-semibold mb-2 whitespace-nowrap">
               Olá, eu sou <span className="text-accent text-4xl sm:text-4xl">Ícaro Sousa</span>
             </h1>

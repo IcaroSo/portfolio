@@ -24,7 +24,6 @@ const skillGroups: SkillGroup[] = [
             { src: "/icons/skills/icons8-typescript-100.png", alt: "TypeScript" },
             { src: "/icons/skills/React.png", alt: "React" },
             { src: "/icons/skills/icons8-nextjs-100.png", alt: "Next.js" },
-            { src: "/icons/skills/icons8-javascript-240.png", alt: "JavaScript" },
             { src: "/icons/skills/icons8-tailwind-css-100.png", alt: "Tailwind CSS" },
             { src: "/icons/skills/HTML5.png", alt: "HTML" },
             { src: "/icons/skills/CSS3.png", alt: "CSS" },
@@ -63,7 +62,6 @@ const skillGroups: SkillGroup[] = [
             { src: "/icons/skills/icons8-jest-100.png", alt: "Jest" },
             { src: "/icons/skills/Postman.png", alt: "Postman" },
             { src: "/icons/skills/Visual Studio Code (VS Code).png", alt: "VS Code" },
-            { src: "/icons/skills/icons8-intellij-idea-240.png", alt: "IntelliJ IDEA" },
             { src: "/icons/skills/linux_6124995.png", alt: "Linux" },
         ],
     },
@@ -124,8 +122,8 @@ export default function SkillsSection() {
                 ))}
             </div>
 
-            <div className="mt-12 flex max-w-6xl flex-col items-center justify-center px-6 text-center sm:px-12 md:px-16">
-                <h2 className="mb-4 text-2xl font-bold text-accent">
+            <div className="mt-12 flex w-full max-w-6xl flex-col items-center justify-center px-6 text-left sm:px-12 md:px-16">
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
                     Front-end e Interfaces
                 </h2>
                 <p className="mb-4 text-lg leading-relaxed">
@@ -138,7 +136,7 @@ export default function SkillsSection() {
                     Utilizo <strong className="text-tech">Tailwind CSS</strong>, <strong className="text-tech">shadcn/ui</strong> e <strong className="text-tech">Radix UI</strong> para manter consistência visual e reutilização de componentes. <strong className="text-tech">React Query</strong> e <strong className="text-tech">Axios</strong> apoiam o controle de cache, paginação e sincronização de dados, enquanto <strong className="text-tech">React Hook Form</strong> e <strong className="text-tech">Zod</strong> são utilizados na construção e validação de formulários.
                 </p>
 
-                <h2 className="mb-4 text-2xl font-bold text-accent">
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
                     Back-end e APIs
                 </h2>
                 <p className="mb-4 text-lg leading-relaxed">
@@ -151,7 +149,7 @@ export default function SkillsSection() {
                     Também desenvolvi projetos com <strong className="text-tech">Java</strong> e <strong className="text-tech">Spring Boot</strong>, <strong className="text-tech">C#</strong> e <strong className="text-tech">ASP.NET Core</strong>, <strong className="text-tech">Python</strong> e <strong className="text-tech">Flask</strong>, além de <strong className="text-tech">Express</strong>. Essas tecnologias representam experiências complementares à minha atuação principal com TypeScript.
                 </p>
 
-                <h2 className="mb-4 text-2xl font-bold text-accent">
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
                     Bancos de Dados e Persistência
                 </h2>
                 <p className="mb-4 text-lg leading-relaxed">
@@ -164,7 +162,7 @@ export default function SkillsSection() {
                     Também tive contato com <strong className="text-tech">Entity Framework</strong>, <strong className="text-tech">MySQL</strong>, <strong className="text-tech">MongoDB</strong> e <strong className="text-tech">Redis</strong> em projetos acadêmicos, pessoais ou estudos de arquitetura.
                 </p>
 
-                <h2 className="mb-4 text-2xl font-bold text-accent">
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
                     Testes, Qualidade e Ferramentas
                 </h2>
                 <p className="mb-4 text-lg leading-relaxed">
