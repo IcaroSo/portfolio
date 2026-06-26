@@ -21,11 +21,11 @@ const skillGroups: SkillGroup[] = [
         description: "Interfaces responsivas, componentes reutilizáveis, integração com APIs e fluxos orientados às regras do produto.",
         accent: "from-accent-muted to-transparent",
         technologies: [
-            { src: "/icons/skills/TypeScript.svg", alt: "TypeScript" },
+            { src: "/icons/skills/icons8-typescript-100.png", alt: "TypeScript" },
             { src: "/icons/skills/React.png", alt: "React" },
-            { src: "/icons/skills/NextJS.svg", alt: "Next.js" },
+            { src: "/icons/skills/icons8-nextjs-100.png", alt: "Next.js" },
             { src: "/icons/skills/icons8-javascript-240.png", alt: "JavaScript" },
-            { src: "/icons/skills/TailwindCSS.svg", alt: "Tailwind CSS" },
+            { src: "/icons/skills/icons8-tailwind-css-100.png", alt: "Tailwind CSS" },
             { src: "/icons/skills/HTML5.png", alt: "HTML" },
             { src: "/icons/skills/CSS3.png", alt: "CSS" },
         ],
@@ -36,7 +36,7 @@ const skillGroups: SkillGroup[] = [
         accent: "from-accent-muted to-transparent",
         technologies: [
             { src: "/icons/skills/node-svgrepo-com.png", alt: "Node.js" },
-            { src: "/icons/skills/NestJS.svg", alt: "NestJS" },
+            { src: "/icons/skills/icons8-nestjs-100.png", alt: "NestJS" },
             { src: "/icons/skills/icons8-java-240.png", alt: "Java" },
             { src: "/icons/skills/Spring.png", alt: "Spring Boot" },
             { src: "/icons/skills/icons8-python-240.png", alt: "Python" },
@@ -48,7 +48,7 @@ const skillGroups: SkillGroup[] = [
         accent: "from-accent-muted to-transparent",
         technologies: [
             { src: "/icons/skills/icons8-postgresql-240.png", alt: "PostgreSQL" },
-            { src: "/icons/skills/PrismaORM.svg", alt: "Prisma ORM" },
+            { src: "/icons/skills/icons8-prisma-orm-100.png", alt: "Prisma ORM" },
             { src: "/icons/skills/MySQL.png", alt: "MySQL" },
             { src: "/icons/skills/MongoDB.png", alt: "MongoDB" },
         ],
@@ -60,7 +60,7 @@ const skillGroups: SkillGroup[] = [
         technologies: [
             { src: "/icons/skills/icons8-git-240.png", alt: "Git" },
             { src: "/icons/skills/icons8-docker-240.png", alt: "Docker" },
-            { src: "/icons/skills/Jest.svg", alt: "Jest" },
+            { src: "/icons/skills/icons8-jest-100.png", alt: "Jest" },
             { src: "/icons/skills/Postman.png", alt: "Postman" },
             { src: "/icons/skills/Visual Studio Code (VS Code).png", alt: "VS Code" },
             { src: "/icons/skills/icons8-intellij-idea-240.png", alt: "IntelliJ IDEA" },
