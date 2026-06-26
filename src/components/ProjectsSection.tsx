@@ -69,13 +69,13 @@ export default function ProjectsSection() {
                             </svg>
                         </button>
 
-                        <div className="flex min-w-24 items-center justify-center gap-2" aria-label="Paginas de projetos">
+                        <div className="flex min-w-24 items-center justify-center gap-2" aria-label="Páginas de projetos">
                             {Array.from({ length: totalPages }).map((_, pageIndex) => (
                                 <button
                                     key={pageIndex}
                                     type="button"
                                     onClick={() => setCurrentPage(pageIndex)}
-                                    aria-label={`Ir para pagina ${pageIndex + 1} de projetos`}
+                                    aria-label={`Ir para página ${pageIndex + 1} de projetos`}
                                     className={`h-2.5 rounded-full transition-all ${currentPage === pageIndex ? "w-8 bg-accent" : "w-2.5 bg-accent-muted hover:bg-accent-hover"}`}
                                 />
                             ))}
@@ -84,7 +84,7 @@ export default function ProjectsSection() {
                         <button
                             type="button"
                             onClick={goToNextPage}
-                            aria-label="Proximos projetos"
+                            aria-label="Próximos projetos"
                             className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus:outline-none"
                         >
                             <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
@@ -94,7 +94,7 @@ export default function ProjectsSection() {
                     </div>
                 </div>
 
-                <div className="relative overflow-hidden px-1 py-2">
+                <div className="relative -mx-4 overflow-visible px-4 py-6">
                     <AnimatePresence mode="wait" initial={false}>
                         <motion.div
                             key={currentPage}
@@ -102,7 +102,7 @@ export default function ProjectsSection() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -48 }}
                             transition={{ duration: 0.35, ease: "easeOut" }}
-                            className="grid w-full grid-cols-1 gap-8 md:grid-cols-2"
+                            className="grid w-full auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2"
                         >
                             {visibleProjects.map((project) => (
                                 <ProjectCard key={project.title} project={project} />
@@ -119,7 +119,7 @@ function ProjectCard({ project }: { project: Project }) {
     return (
         <div
             className="
-        flex flex-col
+        flex h-full min-h-[760px] flex-col sm:min-h-[700px] md:h-[660px] md:min-h-0
         group relative overflow-hidden rounded-2xl 
         border border-border-default bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-elevated)_100%)]
         shadow-[0_14px_34px_var(--shadow-purple)]
@@ -223,7 +223,9 @@ const projects: Project[] = [
         title: "PixPro",
         category: "Projeto acadêmico",
         status: "Concluído",
-        description: "Plataforma de Processamento de Imagens com IA para upload, processamento e organização de imagens, com acompanhamento do status das operações em tempo real. Atuei principalmente em Back-end e Arquitetura, contribuindo para a estrutura, separação de responsabilidades e organização técnica do projeto.",
+        description: "Plataforma de Processamento de Imagens com IA para upload, processamento e organização de imagens, com acompanhamento do status das operações em tempo real. Atuei principalmente em Back-end e Arquitetura, contribuindo para a definição da estrutura do sistema, separação de responsabilidades, integração entre componentes e organização técnica do projeto. A arquitetura foi planejada com microsserviços, comunicação assíncrona, mensageria, WebSockets, PostgreSQL, Redis, CQRS e EDA.",
+        image: "/images/pixpro.png",
+        imageAlt: "Imagem do projeto PixPro",
         tags: ["Microsserviços", "WebSockets", "PostgreSQL", "Redis", "Mensageria", "CQRS", "EDA"],
         isRestricted: true,
     },
@@ -231,7 +233,9 @@ const projects: Project[] = [
         title: "Chatbot de Suporte ao Cliente com IA",
         category: "Projeto acadêmico de IA",
         status: "Concluído",
-        description: "Chatbot especializado em suporte ao cliente, com API Flask e Flask-RESTX, interface Streamlit, Google Gemini, RAG com Chroma, histórico de conversas, validação de domínio, guardrails, avaliação de respostas e fallback local com Ollama e LLaVA.",
+        description: "Chatbot especializado em suporte ao cliente, desenvolvido com API em Flask e Flask-RESTX, interface em Streamlit e integração com Google Gemini. O projeto utiliza RAG com Chroma, histórico de conversas, validação de domínio, guardrails, avaliação de respostas e fallback local com Ollama e LLaVA. Também foram desenvolvidos testes unitários e de integração com PyTest.",
+        image: "/images/Assistente.png",
+        imageAlt: "Imagem do projeto Chatbot de Suporte ao Cliente com IA",
         tags: ["Python", "Flask", "Flask-RESTX", "Streamlit", "Gemini", "RAG", "Chroma", "PyTest"],
         isRestricted: true,
     },
@@ -240,8 +244,8 @@ const projects: Project[] = [
         category: "Projeto acadêmico Full Stack",
         status: "Concluído",
         description: "Aplicação de e-commerce desenvolvida em equipe, com separação entre Front-end e Back-end e comunicação por API REST. O Front-end foi desenvolvido com React, Vite e Tailwind CSS, enquanto o Back-end utilizou Node.js e Express, com Docker para padronizar ambientes.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
-        imageAlt: "Imagem abstrata representando e-commerce",
+        image: "/images/Bahiazon.png",
+        imageAlt: "Imagem do projeto Qatu Marketplace",
         tags: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "Docker", "API REST"],
         isRestricted: true,
     },
@@ -260,6 +264,8 @@ const projects: Project[] = [
         category: "Projeto profissional freelancer",
         status: "Concluído",
         description: "Sistema de Teleconsulta e Gestão de Enfermagem voltado à gestão de pacientes e acompanhamento de processos de enfermagem. Atuei na evolução Full Stack, refatorando um Front-end existente e desenvolvendo Back-end, banco de dados, integrações, autenticação, testes e publicação.",
+        image: "/images/SARe.png",
+        imageAlt: "Imagem do projeto SARe",
         tags: ["Next.js", "React", "TypeScript", "NestJS", "PostgreSQL", "Prisma ORM", "JWT", "Jest", "Supertest"],
         isRestricted: true,
         restrictionLabel: "Projeto profissional restrito",
@@ -288,7 +294,7 @@ const projects: Project[] = [
         title: "API de Autenticação e Controle de Acesso",
         category: "Projeto Back-end",
         status: "Concluído",
-        description: "API desenvolvida para cadastro, autenticação e autorização de usuários. Utiliza ASP.NET Core e Entity Framework, protege credenciais com BCrypt e realiza autorização das requisições por tokens JWT, separando responsabilidades de autenticação, persistência e validação.",
+        description: "API REST desenvolvida para cadastro, autenticação e autorização de usuários. Utiliza ASP.NET Core e Entity Framework, protege credenciais com BCrypt e realiza autorização das requisições por tokens JWT, separando responsabilidades de autenticação, persistência e validação.",
         image: "/images/authentication.jpg",
         imageAlt: "Imagem do projeto API de Autenticação e Controle de Acesso",
         tags: ["C#", "ASP.NET Core", "Entity Framework", "BCrypt", "JWT", "API REST"],

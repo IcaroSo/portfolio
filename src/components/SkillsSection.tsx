@@ -132,10 +132,10 @@ export default function SkillsSection() {
                     Desenvolvo interfaces web responsivas e reutilizáveis com <strong className="text-tech">React</strong>, <strong className="text-tech">Next.js</strong> e <strong className="text-tech">TypeScript</strong>, transformando demandas e regras de negócio em componentes e fluxos claros para o usuário.
                 </p>
                 <p className="mb-4 text-lg leading-relaxed">
-                    Minha experiência inclui formulários, filtros, tabelas, calendários, modais, indicadores e estados de carregamento e erro. Também realizo integração com APIs REST, tratamento dos dados retornados pelo Back-end e refatoração de interfaces existentes.
+                    Minha experiência inclui formulários, filtros, tabelas, calendários, modais, indicadores, estados de carregamento e tratamento de erros. Também realizo integração com APIs REST, adaptação dos dados retornados pelo Back-end e refatoração de interfaces existentes.
                 </p>
                 <p className="mb-6 text-lg leading-relaxed">
-                    Utilizo <strong className="text-tech">Tailwind CSS</strong>, <strong className="text-tech">shadcn/ui</strong> e <strong className="text-tech">Radix UI</strong> para manter consistência visual e acessibilidade. <strong className="text-tech">React Query</strong> e <strong className="text-tech">Axios</strong> apoiam o controle de cache, paginação, sincronização e tratamento de requisições, enquanto <strong className="text-tech">React Hook Form</strong> e <strong className="text-tech">Zod</strong> são utilizados na construção e validação de formulários.
+                    Utilizo <strong className="text-tech">Tailwind CSS</strong>, <strong className="text-tech">shadcn/ui</strong> e <strong className="text-tech">Radix UI</strong> para manter consistência visual e reutilização de componentes. <strong className="text-tech">React Query</strong> e <strong className="text-tech">Axios</strong> apoiam o controle de cache, paginação e sincronização de dados, enquanto <strong className="text-tech">React Hook Form</strong> e <strong className="text-tech">Zod</strong> são utilizados na construção e validação de formulários.
                 </p>
 
                 <h2 className="mb-4 text-2xl font-bold text-accent">
@@ -145,7 +145,7 @@ export default function SkillsSection() {
                     Desenvolvo APIs REST e serviços Back-end principalmente com <strong className="text-tech">Node.js</strong>, <strong className="text-tech">NestJS</strong> e <strong className="text-tech">TypeScript</strong>, trabalhando com autenticação, autorização, validação de dados, regras de negócio e integração com bancos relacionais.
                 </p>
                 <p className="mb-4 text-lg leading-relaxed">
-                    Estruturo aplicações utilizando módulos, controllers, services, DTOs, repositories e injeção de dependência, buscando manter responsabilidades bem definidas e facilitar a evolução do código.
+                    Estruturo as aplicações utilizando módulos, controllers, services, DTOs, repositories e injeção de dependência, mantendo responsabilidades bem definidas e facilitando a evolução do código.
                 </p>
                 <p className="mb-6 text-lg leading-relaxed">
                     Também desenvolvi projetos com <strong className="text-tech">Java</strong> e <strong className="text-tech">Spring Boot</strong>, <strong className="text-tech">C#</strong> e <strong className="text-tech">ASP.NET Core</strong>, <strong className="text-tech">Python</strong> e <strong className="text-tech">Flask</strong>, além de <strong className="text-tech">Express</strong>. Essas tecnologias representam experiências complementares à minha atuação principal com TypeScript.
@@ -158,10 +158,10 @@ export default function SkillsSection() {
                     Minha principal experiência com bancos de dados está concentrada no <strong className="text-tech">PostgreSQL</strong>, utilizado em aplicações profissionais e projetos Full Stack.
                 </p>
                 <p className="mb-4 text-lg leading-relaxed">
-                    Trabalho com modelagem relacional, criação de entidades, relacionamentos, migrations, seed e integração entre persistência e APIs. Utilizo <strong className="text-tech">Prisma ORM</strong> e <strong className="text-tech">TypeORM</strong> em aplicações com Node.js e NestJS.
+                    Trabalho com modelagem relacional, entidades, relacionamentos, migrations, seed e integração entre persistência e APIs. Utilizo <strong className="text-tech">Prisma ORM</strong> e <strong className="text-tech">TypeORM</strong> em aplicações com Node.js e NestJS.
                 </p>
                 <p className="mb-6 text-lg leading-relaxed">
-                    Também possuo experiência complementar com <strong className="text-tech">Entity Framework</strong>, <strong className="text-tech">MySQL</strong> e <strong className="text-tech">MongoDB</strong>. <strong className="text-tech">Redis</strong> está relacionado a projetos acadêmicos e arquiteturas planejadas, não devendo ser apresentado como principal banco utilizado profissionalmente.
+                    Também tive contato com <strong className="text-tech">Entity Framework</strong>, <strong className="text-tech">MySQL</strong>, <strong className="text-tech">MongoDB</strong> e <strong className="text-tech">Redis</strong> em projetos acadêmicos, pessoais ou estudos de arquitetura.
                 </p>
 
                 <h2 className="mb-4 text-2xl font-bold text-accent">
@@ -174,7 +174,7 @@ export default function SkillsSection() {
                     Utilizo <strong className="text-tech">Jest</strong> e <strong className="text-tech">Supertest</strong> em aplicações com Node.js e NestJS, <strong className="text-tech">PyTest</strong> em projetos acadêmicos com Python e <strong className="text-tech">Postman</strong> para validação manual de endpoints, payloads e cenários de erro.
                 </p>
                 <p className="text-lg leading-relaxed">
-                    Trabalho com <strong className="text-tech">Git</strong>, <strong className="text-tech">GitHub</strong> e <strong className="text-tech">GitLab</strong> para versionamento e colaboração, <strong className="text-tech">Docker</strong> e <strong className="text-tech">Docker Compose</strong> para padronização de ambientes e plataformas como <strong className="text-tech">Vercel</strong>, <strong className="text-tech">Render</strong> e <strong className="text-tech">Neon</strong> para publicação de aplicações. Também utilizo <strong className="text-tech">ESLint</strong> e <strong className="text-tech">Prettier</strong> para manter consistência e legibilidade no código.
+                    Trabalho com <strong className="text-tech">Git</strong>, <strong className="text-tech">GitHub</strong> e <strong className="text-tech">GitLab</strong> para versionamento e colaboração, <strong className="text-tech">Docker</strong> e <strong className="text-tech">Docker Compose</strong> para padronização de ambientes e <strong className="text-tech">Vercel</strong>, <strong className="text-tech">Render</strong> e <strong className="text-tech">Neon</strong> para publicação de aplicações. Também utilizo <strong className="text-tech">ESLint</strong> e <strong className="text-tech">Prettier</strong> para manter consistência e legibilidade no código.
                 </p>
             </div>
         </motion.section>

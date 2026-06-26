@@ -52,13 +52,13 @@ export default function Home() {
                 Desenvolvo aplicações web, interfaces e APIs, atuando entre Front-end e Back-end conforme as necessidades de cada produto.
               </p>
               <p>
-                Sou estudante de Engenharia de Software e reúno cerca de três anos de experiência prática em desenvolvimento, combinando atuação profissional, projetos freelancers e projetos acadêmicos. Minha trajetória inclui sistemas corporativos, regras de negócio, integrações, autenticação, bancos de dados, testes e publicação de aplicações.
+                Sou estudante de Engenharia de Software e desenvolvo software desde 2024, combinando formação técnica, projetos acadêmicos, trabalhos freelancers e atuação profissional em aplicações reais e sistemas em produção.
               </p>
               <p>
-                Trabalho principalmente com <strong className="text-tech">React</strong>, <strong className="text-tech">Next.js</strong>, <strong className="text-tech">TypeScript</strong>, <strong className="text-tech">Node.js</strong>, <strong className="text-tech">NestJS</strong> e <strong className="text-tech">PostgreSQL</strong>. Também possuo experiência prática com <strong className="text-tech">C#</strong>, <strong className="text-tech">ASP.NET Core</strong>, <strong className="text-tech">Java</strong>, <strong className="text-tech">Spring Boot</strong>, <strong className="text-tech">Docker</strong> e desenvolvimento de APIs REST.
+                Minha atuação está concentrada em <strong className="text-tech">React</strong>, <strong className="text-tech">Next.js</strong>, <strong className="text-tech">TypeScript</strong>, <strong className="text-tech">Node.js</strong>, <strong className="text-tech">NestJS</strong> e <strong className="text-tech">PostgreSQL</strong>. Também possuo experiência com <strong className="text-tech">C#</strong>, <strong className="text-tech">ASP.NET Core</strong>, <strong className="text-tech">Java</strong>, <strong className="text-tech">Spring Boot</strong>, <strong className="text-tech">Docker</strong> e desenvolvimento de APIs REST.
               </p>
               <p>
-                Busco construir soluções organizadas, testáveis e fáceis de manter, aplicando componentização, separação de responsabilidades, orientação a objetos e princípios SOLID de acordo com as necessidades de cada projeto.
+                Trabalho desde a análise de demandas e regras de negócio até a implementação, integração, testes, refatoração e publicação das aplicações, buscando manter o código organizado, testável e fácil de evoluir.
               </p>
             </div>
 
