@@ -73,7 +73,7 @@ export default function Home() {
                           hover:bg-surface-hover
                           hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 href="/ICARO_RODRIGUES_FULLSTACK.pdf"
-                download="Icaro_Sousa_CV.pdf"
+                download="ICARO_RODRIGUES_FULLSTACK_CV.pdf"
                 aria-label="Baixar curriculo"
                 title="Baixar Currículo"
               >
