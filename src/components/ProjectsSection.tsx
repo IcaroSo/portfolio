@@ -62,7 +62,7 @@ export default function ProjectsSection() {
                             type="button"
                             onClick={goToPreviousPage}
                             aria-label="Projetos anteriores"
-                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus:outline-none"
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
                             <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="m15 18-6-6 6-6" />
@@ -76,7 +76,7 @@ export default function ProjectsSection() {
                                     type="button"
                                     onClick={() => setCurrentPage(pageIndex)}
                                     aria-label={`Ir para página ${pageIndex + 1} de projetos`}
-                                    className={`h-2.5 rounded-full transition-all ${currentPage === pageIndex ? "w-8 bg-accent" : "w-2.5 bg-accent-muted hover:bg-accent-hover"}`}
+                                    className={`h-2.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${currentPage === pageIndex ? "w-8 bg-accent" : "w-2.5 bg-accent-muted hover:bg-accent-hover"}`}
                                 />
                             ))}
                         </div>
@@ -85,7 +85,7 @@ export default function ProjectsSection() {
                             type="button"
                             onClick={goToNextPage}
                             aria-label="Próximos projetos"
-                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus:outline-none"
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                         >
                             <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="m9 18 6-6-6-6" />
@@ -102,7 +102,7 @@ export default function ProjectsSection() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -48 }}
                             transition={{ duration: 0.35, ease: "easeOut" }}
-                            className="grid w-full auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2"
+                            className="grid w-full auto-rows-fr grid-cols-1 gap-8 lg:grid-cols-2"
                         >
                             {visibleProjects.map((project) => (
                                 <ProjectCard key={project.title} project={project} />
@@ -119,7 +119,7 @@ function ProjectCard({ project }: { project: Project }) {
     return (
         <div
             className="
-        flex h-full min-h-[760px] flex-col sm:min-h-[700px] md:h-[660px] md:min-h-0
+        flex h-auto min-h-0 min-w-0 flex-col lg:h-[660px]
         group relative overflow-hidden rounded-2xl 
         border border-border-default bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-elevated)_100%)]
         shadow-[0_14px_34px_var(--shadow-purple)]
@@ -137,6 +137,7 @@ function ProjectCard({ project }: { project: Project }) {
                         alt={project.imageAlt ?? project.title}
                         fill
                         className="object-cover transition-all duration-300 lg:group-hover:scale-110"
+                        sizes="(max-width: 1023px) calc(100vw - 3rem), 544px"
                     />
                 ) : (
                     <div className="flex h-full w-full items-end bg-[radial-gradient(circle_at_top_left,var(--primary-muted),transparent_42%),linear-gradient(135deg,var(--surface),var(--surface-elevated)_52%,var(--background))] p-5">
@@ -206,7 +207,7 @@ function ProjectCard({ project }: { project: Project }) {
                                 bg-accent hover:bg-accent-hover
                                 text-foreground font-semibold text-sm
                                 shadow-[0_10px_24px_var(--shadow-purple)]
-                                transition w-full text-center
+                                transition w-full text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background
                             "
                         >
                             Ver código
@@ -275,7 +276,7 @@ const projects: Project[] = [
         category: "Projeto Full Stack",
         status: "Concluído",
         description: "Aplicação Full Stack para organização e acompanhamento de tarefas, com autenticação e separação dos dados por usuário. Possui API REST em C# e ASP.NET Core, persistência em PostgreSQL e interface em React para operações de CRUD.",
-        image: "/images/todo.jpg",
+        image: "/images/todo.webp",
         imageAlt: "Imagem do projeto Gerenciador Web de Tarefas",
         tags: ["C#", ".NET", "ASP.NET Core", "PostgreSQL", "React", "API REST", "CRUD"],
         repositoryUrl: "https://github.com/IcaroSo/ToDoApp/tree/develop",
@@ -295,7 +296,7 @@ const projects: Project[] = [
         category: "Projeto Back-end",
         status: "Concluído",
         description: "API REST desenvolvida para cadastro, autenticação e autorização de usuários. Utiliza ASP.NET Core e Entity Framework, protege credenciais com BCrypt e realiza autorização das requisições por tokens JWT, separando responsabilidades de autenticação, persistência e validação.",
-        image: "/images/authentication.jpg",
+        image: "/images/authentication.webp",
         imageAlt: "Imagem do projeto API de Autenticação e Controle de Acesso",
         tags: ["C#", "ASP.NET Core", "Entity Framework", "BCrypt", "JWT", "API REST"],
         repositoryUrl: "https://github.com/IcaroSo/AuthenticationAPI",

@@ -14,7 +14,7 @@ export default function Home() {
         initial={{ opacity: 0, y: -40 }}   // começa acima e invisível
         animate={{ opacity: 1, y: 0 }}     // desce até o lugar
         transition={{ duration: 1.4, ease: "easeOut" }} // bem devagar
-        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 scroll-mt-24 sm:scroll-mt-28"
+        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 scroll-mt-24 sm:scroll-mt-28"
       >
         {/* flex-column até telas grandes */}
         <div className="flex w-full max-w-6xl flex-col items-center justify-center gap-12 lg:flex-row lg:justify-start lg:gap-16 lg:px-16">
@@ -31,17 +31,18 @@ export default function Home() {
             </div>
 
             <Image
-              src="/images/icaro.png"
+              src="/images/icaro.webp"
               alt="Foto de Ícaro Sousa"
               fill
               className="object-cover object-bottom"
+              sizes="(max-width: 640px) 240px, 288px"
               priority
             />
           </div>
 
           {/* TEXTO */}
           <div className="mt-10 w-full max-w-2xl text-left lg:mt-0">
-            <h1 className="text-3xl sm:text-3xl font-semibold mb-2 whitespace-nowrap">
+            <h1 className="text-3xl sm:text-3xl font-semibold mb-2 leading-tight whitespace-normal lg:whitespace-nowrap">
               Olá, eu sou <span className="text-accent text-4xl sm:text-4xl">Ícaro Sousa</span>
             </h1>
             <h3 className="text-2xl sm:text-2xl mb-4 text-accent">
@@ -63,16 +64,17 @@ export default function Home() {
             </div>
 
             {/* ÍCONES */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 lg:justify-start">
               <a
                 className="px-4 py-4 text-foreground rounded-full border border-border-default transition
                           shadow-[0_10px_24px_var(--shadow-purple)]
                           bg-surface
                           hover:border-border-hover
                           hover:bg-surface-hover
-                          hover:-translate-y-0.5"
-                href="/ICARO_DE_SOUSA_RODRIGUES_CV.pdf"
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                href="/ICARO_RODRIGUES_FULLSTACK.pdf"
                 download="Icaro_Sousa_CV.pdf"
+                aria-label="Baixar curriculo"
                 title="Baixar Currículo"
               >
                 <Image src="/icons/home/icons8-download-100.png" alt="Download CV" width={32} height={32} />
@@ -84,11 +86,12 @@ export default function Home() {
                           bg-surface
                           hover:border-border-hover
                           hover:bg-surface-hover
-                          hover:-translate-y-0.5"
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 href="https://github.com/IcaroSo"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub"
+                aria-label="Abrir GitHub"
               >
                 <Image src="/icons/home/github-mark-white.png" alt="GitHub" width={32} height={32} />
               </a>
@@ -99,11 +102,12 @@ export default function Home() {
                           bg-surface
                           hover:border-border-hover
                           hover:bg-surface-hover
-                          hover:-translate-y-0.5"
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 href="https://linkedin.com/in/icrusousa"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
+                aria-label="Abrir LinkedIn"
               >
                 <Image src="/icons/home/InBug-White.png" alt="LinkedIn" width={32} height={32} />
               </a>
@@ -114,9 +118,10 @@ export default function Home() {
                           bg-surface
                           hover:border-border-hover
                           hover:bg-surface-hover
-                          hover:-translate-y-0.5"
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 href="mailto:icarosa20rs@gmail.com"
                 title="Enviar E-mail"
+                aria-label="Enviar e-mail"
               >
                 <Image src="/icons/home/icons8-gmail-250.png" alt="E-mail" width={32} height={32} />
               </a>

@@ -74,7 +74,7 @@ export default function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
-            className="flex min-h-[100vh] flex-col items-center justify-start px-8 py-16 sm:px-12 md:px-16 lg:px-24"
+            className="flex flex-col items-center justify-start px-6 py-16 sm:px-12 md:px-16 lg:min-h-[100vh] lg:px-24"
         >
             <h2 id="skills" className="mb-12 w-full scroll-mt-24 text-center text-3xl font-bold text-accent sm:scroll-mt-28">
                 Skills
