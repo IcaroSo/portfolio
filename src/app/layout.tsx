@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Josefin_Sans, Press_Start_2P } from "next/font/google";
+import CursorGlow from "../components/CursorGlow";
 import Navbar from "../components/Navbar";
 
 const minecraftFont = Press_Start_2P({
@@ -26,10 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-br" className={`${josefin.variable} ${minecraftFont.variable}`}>
       <body
         suppressHydrationWarning
-        className="font-[var(--font-josefin)] bg-[linear-gradient(180deg,var(--background)_0%,var(--background-secondary)_58%,var(--background-deep)_100%)] text-foreground min-h-screen"
+        className="relative isolate font-[var(--font-josefin)] text-foreground min-h-screen"
       >
+        <CursorGlow />
         <Navbar />
-        <main className="px-4 sm:px-6 md:px-8 py-8 sm:py-12">{children}</main>
+        <main className="relative z-10 px-4 sm:px-6 md:px-8 py-8 sm:py-12">{children}</main>
       </body>
     </html>
   );
