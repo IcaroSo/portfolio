@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function ExperiencesSection() {
@@ -126,11 +125,25 @@ export default function ExperiencesSection() {
 
 const professionalExperiences = [
     {
-        title: "Projeto Voluntário (Museu de Histórias)",
-        role: "Desenvolvedor Backend",
-        period: "Jan 2026 - Atual",
+        title: "PASS: Plataforma de Viagens Corporativas",
+        role: "Desenvolvedor Front-end PJ",
+        period: "Abr 2026 - Atual",
         description:
-            "Atuação como desenvolvedor backend na construção e manutenção de sistema para gestão e disponibilização de informações do museu.\n\n• Desenvolvimento de APIs REST utilizando NestJS e TypeScript.\n• Implementação de testes automatizados com Jest, garantindo maior confiabilidade e manutenção do sistema."
+            "Atuo no desenvolvimento e na evolução de uma plataforma corporativa de viagens, contribuindo para novas funcionalidades e melhorias contínuas.\n\n• Analiso demandas e regras de negócio, transformando necessidades do produto em soluções de interface.\n• Desenvolvo aplicações com React, Next.js, TypeScript e Tailwind CSS.\n• Integro o Front-end com APIs REST, tratando carregamento, paginação, erros e sincronização de dados.\n• Refatoro componentes e fluxos para melhorar reutilização, manutenção e experiência do usuário.\n• Colaboro com a equipe na revisão de código, validação de funcionalidades e correção de inconsistências."
+    },
+    {
+        title: "SARe: Sistema de Teleconsulta e Gestão de Enfermagem",
+        role: "Desenvolvedor Full Stack Freelancer",
+        period: "Mai 2026 - Jun 2026",
+        description:
+            "Atuei na evolução Full Stack de um sistema voltado para teleconsulta, acompanhamento de pacientes e gestão de processos de enfermagem.\n\n• Refatorei e ampliei um Front-end existente com React, Next.js, TypeScript e Tailwind CSS.\n• Desenvolvi uma API REST com NestJS, autenticação JWT, recuperação de senha e controle de acesso por perfis.\n• Modelei o PostgreSQL com Prisma ORM para avaliações, reavaliações, consultas, agendamentos e histórico de atendimento.\n• Implementei regras de negócio relacionadas aos fluxos de avaliação e reavaliação.\n• Desenvolvi testes com Jest e Supertest.\n• Configurei a publicação do Front-end na Vercel, do Back-end no Render e do banco de dados no Neon."
+    },
+    {
+        title: "Museu de Histórias",
+        role: "Desenvolvedor Back-end Voluntário",
+        period: "Jan 2026 - Jun 2026",
+        description:
+            "Atuei no desenvolvimento e na manutenção de uma API REST para gestão e disponibilização de informações de acervo.\n\n• Analisei rotas, payloads, validações, autenticação e regras de negócio.\n• Testei endpoints e integrações utilizando Postman.\n• Executei, analisei e apoiei a manutenção de testes automatizados com Jest.\n• Investiguei inconsistências em controllers, services, DTOs e entidades.\n• Contribuí com refatorações, revisão de código, QA técnico e validação de correções."
     }
 ];
 
@@ -138,60 +151,60 @@ const academicExperiences = [
     {
         title: "Engenharia de Software",
         role: "Jala University",
-        period: "Jan 2024 - Jan 2028",
+        period: "Jan 2024 - Previsão Jan 2028",
         description:
-            "Destaque Acadêmico: Dean’s List — Term 1 e Term 2 (2024), Term 2 (2025).\n\nPrincipais conteúdos: C#, Java, JavaScript/TypeScript, Spring Boot, .NET Core, Node.js, React e NestJS."
+            "Formação voltada ao desenvolvimento de software, arquitetura de sistemas, orientação a objetos, APIs, bancos de dados, testes, experiência do usuário e construção de aplicações em equipe.\n\nDestaque acadêmico: Dean's List — Term 1 e Term 2 de 2024 e Term 2 de 2025."
     },
     {
         title: "Análise e Desenvolvimento de Sistemas",
         role: "UNIASSELVI",
-        period: "Jan 2026 - Jul 2028",
+        period: "Jan 2026 - Previsão Jul 2028",
         description:
-            "Principais conteúdos: Algoritmos, POO, Estrutura de Dados, Arquitetura de Sistemas, Desenvolvimento Fullstack e construção de APIs REST."
+            "Formação complementar em algoritmos, estruturas de dados, orientação a objetos, bancos de dados, desenvolvimento web e análise de sistemas."
     }
 ];
 
 const certificates = [
     {
-        title: "C# Completo",
+        title: "JavaScript e TypeScript do Básico ao Avançado",
         role: "Udemy",
-        period: "2025",
-        description: "Programação Orientada a Objetos + Projetos (38h)"
+        period: "2026",
+        description: "Formação em JavaScript, TypeScript, programação assíncrona, orientação a objetos, desenvolvimento web e construção de aplicações. (146h)"
     },
     {
-        title: "Java Completo",
-        role: "Udemy",
-        period: "2025",
-        description: "Programação Orientada a Objetos + Projetos (54.5h)"
-    },
-    {
-        title: "Docker para Desenvolvedores",
-        role: "Udemy",
-        period: "2025",
-        description: "Docker Swarm e Kubernetes (13.5h)"
-    },
-    {
-        title: "Programa Lighthouse – Ciclo Preparatório",
+        title: "Programa Lighthouse — Ciclo Preparatório",
         role: "Indicium",
         period: "2026",
-        description: "Fundamentos de Dados, Análise de Problemas e Aplicações em Data (60h)"
-    },
-    {
-        title: "Dean’s List — Term 1 e Term 2 (2024), Term 2 (2025)",
-        role: "Jala University",
-        period: "2024, 2025",
-        description: "Destaque Acadêmico"
+        description: "Programa voltado a fundamentos de dados, análise de problemas, raciocínio analítico e aplicação prática de conceitos relacionados a dados. (60h)"
     },
     {
         title: "Desenvolvimento Web Completo",
         role: "Udemy",
         period: "2025",
-        description: "Desenvolvimento Web Completo – 20 Cursos + 20 Projetos (120h)"
+        description: "Formação prática em desenvolvimento web, Front-end, Back-end, bancos de dados e construção de aplicações completas. (120h)"
     },
     {
-        title: "JavaScript e TypeScript do Básico ao Avançado",
+        title: "Docker para Desenvolvedores",
         role: "Udemy",
-        period: "2026",
-        description: "JavaScript e TypeScript do Básico ao Avançado – JS + TS (146h)"
+        period: "2025",
+        description: "Estudo de conteinerização, criação e gerenciamento de imagens, Docker Compose, Docker Swarm e fundamentos de Kubernetes. (13,5h)"
+    },
+    {
+        title: "Java Completo",
+        role: "Udemy",
+        period: "2025",
+        description: "Formação em Java, orientação a objetos, coleções, tratamento de exceções, persistência e desenvolvimento de projetos. (54,5h)"
+    },
+    {
+        title: "C# Completo",
+        role: "Udemy",
+        period: "2025",
+        description: "Formação em C#, orientação a objetos, coleções, LINQ, tratamento de exceções e desenvolvimento de aplicações. (38h)"
+    },
+    {
+        title: "Dean's List",
+        role: "Jala University",
+        period: "2024 e 2025",
+        description: "Reconhecimento acadêmico obtido no Term 1 e Term 2 de 2024 e no Term 2 de 2025."
     }
 ];

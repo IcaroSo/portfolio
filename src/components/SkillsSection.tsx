@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, type RefObject } from "react";
 
 import { motion, useAnimation } from "framer-motion";
 
@@ -27,6 +27,17 @@ const techBubbles = [
     { src: "/icons/skills/Visual Studio.png", alt: "Visual Studio" },
     { src: "/icons/skills/Rider.png", alt: "Rider" },
 ];
+type TechBubble = {
+    src: string;
+    alt: string;
+};
+
+function randomVelocity(speedMultiplier: number) {
+    return {
+        vx: (Math.random() * 2 - 1) * speedMultiplier,
+        vy: (Math.random() * 2 - 1) * speedMultiplier,
+    };
+}
 
 function randomStart(width: number, height: number, bubbleSize: number) {
     return {
@@ -65,39 +76,53 @@ export default function SkillsSection() {
             <div className="flex flex-col items-center justify-center max-w-6xl px-6 sm:px-12 md:px-16 mt-12 text-center">
 
                 <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Linguagens & Backend
+                    Front-end e Interfaces
                 </h2>
+                <p className="leading-relaxed text-lg mb-4">
+                    Desenvolvimento de interfaces web responsivas, reutilizáveis e integradas a APIs. Trabalho com <strong className="text-indigo-400">React</strong>, <strong className="text-indigo-400">Next.js</strong> e <strong className="text-indigo-400">TypeScript</strong> na construção de componentes, formulários, filtros, tabelas, modais, estados de carregamento e fluxos orientados às regras do produto.
+                </p>
                 <p className="leading-relaxed text-lg mb-6">
-                    Desenvolvimento de regras de negócio, APIs REST e arquiteturas escaláveis. Forte experiência com <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">Python</strong> e ecossistema <strong className="text-indigo-400">Node.js</strong>. Fluência em frameworks maduros como <strong className="text-indigo-400">Spring Boot</strong>, <strong className="text-indigo-400">.NET API</strong> e <strong className="text-indigo-400">NestJS</strong>.
+                    Também utilizo <strong className="text-indigo-400">Tailwind CSS</strong>, <strong className="text-indigo-400">shadcn/ui</strong>, <strong className="text-indigo-400">Radix UI</strong>, <strong className="text-indigo-400">React Query</strong>, <strong className="text-indigo-400">Axios</strong>, <strong className="text-indigo-400">Zustand</strong>, <strong className="text-indigo-400">React Hook Form</strong> e <strong className="text-indigo-400">Zod</strong> para organizar a interface, controlar estados, validar dados e manter consistência visual.
                 </p>
 
                 <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Frontend & Interfaces
+                    Back-end e APIs
                 </h2>
+                <p className="leading-relaxed text-lg mb-4">
+                    Desenvolvimento e manutenção de APIs REST, autenticação, autorização, validação de dados e implementação de regras de negócio.
+                </p>
                 <p className="leading-relaxed text-lg mb-6">
-                    Construção de aplicações web modernas, SPAs dinâmicas e integração com múltiplos backends utilizando <strong className="text-indigo-400">React</strong>, <strong className="text-indigo-400">Next.js</strong> e focado em componentização via <strong className="text-indigo-400">JavaScript/TypeScript</strong> e estilização nativa/Tailwind.
+                    Minha atuação principal utiliza <strong className="text-indigo-400">Node.js</strong>, <strong className="text-indigo-400">NestJS</strong> e <strong className="text-indigo-400">TypeScript</strong>. Também desenvolvi projetos com <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">ASP.NET Core</strong>, <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">Spring Boot</strong> e <strong className="text-indigo-400">Express</strong>, aplicando arquitetura em camadas, injeção de dependência, DTOs, services, repositories e separação de responsabilidades.
                 </p>
 
                 <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Bancos de Dados
+                    Bancos de Dados e Persistência
                 </h2>
+                <p className="leading-relaxed text-lg mb-4">
+                    Modelagem e integração de bancos relacionais com foco em <strong className="text-indigo-400">PostgreSQL</strong>, incluindo criação de entidades, relacionamentos, migrations, seed e persistência de dados.
+                </p>
                 <p className="leading-relaxed text-lg mb-6">
-                    Modelagem relacional robusta em <strong className="text-indigo-400">PostgreSQL</strong> e <strong className="text-indigo-400">MySQL</strong>. Implementação de persistência ágil e flexível usando bancos não-relacionais como <strong className="text-indigo-400">MongoDB</strong>.
+                    Possuo experiência com <strong className="text-indigo-400">Prisma ORM</strong>, <strong className="text-indigo-400">TypeORM</strong> e <strong className="text-indigo-400">Entity Framework</strong>, além de conhecimentos complementares em <strong className="text-indigo-400">MySQL</strong>, <strong className="text-indigo-400">MongoDB</strong> e <strong className="text-indigo-400">Redis</strong> em contextos acadêmicos e arquiteturas planejadas.
                 </p>
 
                 <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Cloud, DevOps & Infraestrutura
+                    Testes, Qualidade e Entrega
                 </h2>
+                <p className="leading-relaxed text-lg mb-4">
+                    Implementação e execução de testes unitários e de integração com <strong className="text-indigo-400">Jest</strong>, <strong className="text-indigo-400">Supertest</strong> e <strong className="text-indigo-400">PyTest</strong>, além de validação manual de APIs com <strong className="text-indigo-400">Postman</strong>.
+                </p>
+                <p className="leading-relaxed text-lg mb-4">
+                    Trabalho com <strong className="text-indigo-400">Git</strong>, <strong className="text-indigo-400">GitHub</strong> e <strong className="text-indigo-400">GitLab</strong> para versionamento e colaboração, <strong className="text-indigo-400">Docker</strong> e <strong className="text-indigo-400">Docker Compose</strong> para padronização de ambientes e plataformas como <strong className="text-indigo-400">Vercel</strong>, <strong className="text-indigo-400">Render</strong> e <strong className="text-indigo-400">Neon</strong> para publicação de aplicações.
+                </p>
                 <p className="leading-relaxed text-lg">
-                    Cultura de deploy eficiente adotando conteinerização com <strong className="text-indigo-400">Docker</strong> e orquestração leve via <strong className="text-indigo-400">Docker Compose</strong>. Vivência com ambientes <strong className="text-indigo-400">Linux</strong>, versionamento contínuo usando <strong className="text-indigo-400">Git/GitHub/GitLab</strong> e testes de integração de API utilizando <strong className="text-indigo-400">Postman/Insomnia</strong>.
+                    Também utilizo <strong className="text-indigo-400">ESLint</strong> e <strong className="text-indigo-400">Prettier</strong> para manter consistência, legibilidade e qualidade no código.
                 </p>
 
-            </div>
-        </motion.section>
+            </div>        </motion.section>
     );
 }
 
-function Bubble({ tech, boundsRef }: any) {
+function Bubble({ tech, boundsRef }: { tech: TechBubble; boundsRef: RefObject<HTMLDivElement | null> }) {
     const controls = useAnimation();
 
     const speedMultiplier = 0.03;
@@ -105,10 +130,7 @@ function Bubble({ tech, boundsRef }: any) {
 
     const [bubbleSize, setBubbleSize] = useState<number | null>(null);
 
-    const velRef = useRef({
-        vx: (Math.random() * 2 - 1) * speedMultiplier,
-        vy: (Math.random() * 2 - 1) * speedMultiplier,
-    });
+    const velRef = useRef({ vx: 0, vy: 0 });
     const isDraggingRef = useRef(false);
     const positionRef = useRef({ x: 0, y: 0 });
     const bubbleRef = useRef<HTMLDivElement>(null);
@@ -122,7 +144,9 @@ function Bubble({ tech, boundsRef }: any) {
     // ✅ Define tamanho SOMENTE após mount
     useEffect(() => {
         const size = getBubbleSize();
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setBubbleSize(size);
+        velRef.current = randomVelocity(speedMultiplier);
 
         const handleResize = () => {
             const newSize = getBubbleSize();

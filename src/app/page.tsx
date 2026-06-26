@@ -45,23 +45,22 @@ export default function Home() {
               Olá, eu sou <span className="text-indigo-800 text-4xl sm:text-4xl">Ícaro Sousa</span>
             </h1>
             <h3 className="text-2xl sm:text-2xl mb-4 text-blue-500">
-              Desenvolvedor FullStack
+              Desenvolvedor Full Stack
             </h3>
             <div className="text-gray-300 mb-8 text-base sm:text-lg space-y-2">
               <p>
-                Desenvolvedor <strong className="text-indigo-400">FullStack</strong> especializado em construir <strong className="text-indigo-400">aplicações escaláveis</strong> e <strong className="text-indigo-400">interfaces modernas</strong>.
+                Desenvolvo aplicações web, interfaces e APIs, atuando entre Front-end e Back-end conforme as necessidades de cada produto.
               </p>
               <p>
-                Estudante de Engenharia de Software com 3 anos de experiência prática na criação de APIs REST e sistemas backend focados em performance.
+                Sou estudante de Engenharia de Software e reúno cerca de três anos de experiência prática em desenvolvimento, combinando atuação profissional, projetos freelancers e projetos acadêmicos. Minha trajetória inclui sistemas corporativos, regras de negócio, integrações, autenticação, bancos de dados, testes e publicação de aplicações.
               </p>
               <p>
-                Domínio em <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong> e <strong className="text-indigo-400">Node.js</strong> usando <strong className="text-indigo-400">Spring Boot</strong> e <strong className="text-indigo-400">.NET</strong>. Modelador e otimizador de bancos de dados relacionais e não-relacionais. No frontend, crio experiências fluidas com <strong className="text-indigo-400">React</strong> e <strong className="text-indigo-400">Next.js</strong>.
+                Trabalho principalmente com <strong className="text-indigo-400">React</strong>, <strong className="text-indigo-400">Next.js</strong>, <strong className="text-indigo-400">TypeScript</strong>, <strong className="text-indigo-400">Node.js</strong>, <strong className="text-indigo-400">NestJS</strong> e <strong className="text-indigo-400">PostgreSQL</strong>. Também possuo experiência prática com <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">ASP.NET Core</strong>, <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">Spring Boot</strong>, <strong className="text-indigo-400">Docker</strong> e desenvolvimento de APIs REST.
               </p>
               <p>
-                Trabalho focado em <strong className="text-indigo-400">Arquitetura de Software</strong>, POO e princípios SOLID, entregando código limpo, testável e manutenível.
+                Busco construir soluções organizadas, testáveis e fáceis de manter, aplicando componentização, separação de responsabilidades, orientação a objetos e princípios SOLID de acordo com as necessidades de cada projeto.
               </p>
             </div>
-
 
             {/* ÍCONES */}
             <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8">
