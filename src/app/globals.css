@@ -2,6 +2,54 @@
 
 :root {
   --font-josefin: "Josefin Sans", sans-serif;
+
+  --background: #000101;
+  --background-secondary: #090d18;
+  --background-deep: #070b15;
+  --surface: #111827;
+  --surface-elevated: #151d31;
+  --surface-hover: #1b2540;
+  --surface-hover-elevated: #223052;
+
+  --primary: #7f8cff;
+  --primary-hover: #96a0ff;
+  --primary-active: #6977df;
+  --primary-muted: rgba(127, 140, 255, 0.2);
+  --technology: #9ab3d5;
+
+  --border: rgba(148, 159, 255, 0.24);
+  --border-hover: rgba(148, 159, 255, 0.5);
+
+  --text-primary: #f2f4fb;
+  --text-secondary: #c3c8de;
+  --text-muted: #969db8;
+
+  --shadow-purple: rgba(92, 105, 220, 0.28);
+  --shadow-purple-strong: rgba(92, 105, 220, 0.42);
+  --text-glow: rgba(242, 244, 251, 0.45);
+  --cursor-glow-x: -1000px;
+  --cursor-glow-y: -1000px;
+  --cursor-glow-strength: 0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-deep: var(--background-deep);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-hover-elevated: var(--surface-hover-elevated);
+  --color-accent: var(--primary);
+  --color-accent-hover: var(--primary-hover);
+  --color-accent-active: var(--primary-active);
+  --color-accent-muted: var(--primary-muted);
+  --color-tech: var(--technology);
+  --color-border-default: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-foreground: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-subtle: var(--text-muted);
 }
 
 html {
@@ -12,6 +60,31 @@ body {
   font-family: var(--font-josefin);
   margin: 0;
   padding: 0;
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+::selection {
+  background: var(--primary-muted);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-hover);
+  border: 2px solid var(--background);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-active);
 }
 
 @keyframes float {

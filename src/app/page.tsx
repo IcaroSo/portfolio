@@ -14,16 +14,16 @@ export default function Home() {
         initial={{ opacity: 0, y: -40 }}   // começa acima e invisível
         animate={{ opacity: 1, y: 0 }}     // desce até o lugar
         transition={{ duration: 1.4, ease: "easeOut" }} // bem devagar
-        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-8 sm:px-12 md:px-16 lg:px-24 scroll-mt-24 sm:scroll-mt-28"
+        className="flex flex-col items-center justify-center min-h-[80vh] text-center px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 scroll-mt-24 sm:scroll-mt-28"
       >
         {/* flex-column até telas grandes */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+        <div className="flex w-full max-w-6xl flex-col items-center justify-center gap-12 lg:flex-row lg:justify-start lg:gap-16 lg:px-16">
 
           {/* FOTO */}
-          <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden bg-gradient-to-b from-indigo-700 to-blue-900 shadow-[0_0_25px_#4338ca] animate-float">
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black px-4 py-1.5 opacity-60 ">
+          <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden bg-[linear-gradient(180deg,var(--primary-active)_0%,var(--surface)_100%)] shadow-[0_0_25px_var(--shadow-purple-strong)] animate-float">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-background px-4 py-1.5 opacity-70 ">
               <h2
-                className="text-sm text-white font-bold tracking-wider drop-shadow-[0_0_6px_#ffffff]"
+                className="text-sm text-foreground font-bold tracking-wider drop-shadow-[0_0_6px_var(--text-glow)]"
                 style={{ fontFamily: "var(--font-minecraft)" }}
               >
                 Icru
@@ -31,89 +31,97 @@ export default function Home() {
             </div>
 
             <Image
-              src="/images/icaro.png"
+              src="/images/icaro.webp"
               alt="Foto de Ícaro Sousa"
               fill
               className="object-cover object-bottom"
+              sizes="(max-width: 640px) 240px, 288px"
               priority
             />
           </div>
 
           {/* TEXTO */}
-          <div className="max-w-lg text-left mt-10 lg:mt-0">
-            <h1 className="text-3xl sm:text-3xl font-semibold mb-2 whitespace-nowrap">
-              Olá, eu sou <span className="text-indigo-800 text-4xl sm:text-4xl">Ícaro Sousa</span>
+          <div className="mt-10 w-full max-w-2xl text-left lg:mt-0">
+            <h1 className="text-3xl sm:text-3xl font-semibold mb-2 leading-tight whitespace-normal lg:whitespace-nowrap">
+              Olá, eu sou <span className="text-accent text-4xl sm:text-4xl">Ícaro Sousa</span>
             </h1>
-            <h3 className="text-2xl sm:text-2xl mb-4 text-blue-500">
-              Desenvolvedor FullStack
+            <h3 className="text-2xl sm:text-2xl mb-4 text-accent">
+              Desenvolvedor Full Stack
             </h3>
-            <div className="text-gray-300 mb-8 text-base sm:text-lg space-y-2">
+            <div className="text-muted mb-8 text-base sm:text-lg space-y-2">
               <p>
-                Desenvolvedor <strong className="text-indigo-400">FullStack</strong> especializado em construir <strong className="text-indigo-400">aplicações escaláveis</strong> e <strong className="text-indigo-400">interfaces modernas</strong>.
+                Desenvolvo aplicações web, interfaces e APIs, atuando entre Front-end e Back-end conforme as necessidades de cada produto.
               </p>
               <p>
-                Estudante de Engenharia de Software com 3 anos de experiência prática na criação de APIs REST e sistemas backend focados em performance.
+                Sou estudante de Engenharia de Software e desenvolvo software desde 2024, combinando formação técnica, projetos acadêmicos, trabalhos freelancers e atuação profissional em aplicações reais e sistemas em produção.
               </p>
               <p>
-                Domínio em <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong> e <strong className="text-indigo-400">Node.js</strong> usando <strong className="text-indigo-400">Spring Boot</strong> e <strong className="text-indigo-400">.NET</strong>. Modelador e otimizador de bancos de dados relacionais e não-relacionais. No frontend, crio experiências fluidas com <strong className="text-indigo-400">React</strong> e <strong className="text-indigo-400">Next.js</strong>.
+                Minha atuação está concentrada em <strong className="text-tech">React</strong>, <strong className="text-tech">Next.js</strong>, <strong className="text-tech">TypeScript</strong>, <strong className="text-tech">Node.js</strong>, <strong className="text-tech">NestJS</strong> e <strong className="text-tech">PostgreSQL</strong>. Também possuo experiência com <strong className="text-tech">C#</strong>, <strong className="text-tech">ASP.NET Core</strong>, <strong className="text-tech">Java</strong>, <strong className="text-tech">Spring Boot</strong>, <strong className="text-tech">Docker</strong> e desenvolvimento de APIs REST.
               </p>
               <p>
-                Trabalho focado em <strong className="text-indigo-400">Arquitetura de Software</strong>, POO e princípios SOLID, entregando código limpo, testável e manutenível.
+                Trabalho desde a análise de demandas e regras de negócio até a implementação, integração, testes, refatoração e publicação das aplicações, buscando manter o código organizado, testável e fácil de evoluir.
               </p>
             </div>
 
-
             {/* ÍCONES */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 lg:justify-start">
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
-                href="/ICARO_DE_SOUSA_RODRIGUES_CV.pdf"
-                download="Icaro_Sousa_CV.pdf"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                href="/ICARO_RODRIGUES_FULLSTACK.pdf"
+                download="ICARO_RODRIGUES_FULLSTACK_CV.pdf"
+                aria-label="Baixar curriculo"
                 title="Baixar Currículo"
               >
                 <Image src="/icons/home/icons8-download-100.png" alt="Download CV" width={32} height={32} />
               </a>
 
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 href="https://github.com/IcaroSo"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub"
+                aria-label="Abrir GitHub"
               >
                 <Image src="/icons/home/github-mark-white.png" alt="GitHub" width={32} height={32} />
               </a>
 
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 href="https://linkedin.com/in/icrusousa"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
+                aria-label="Abrir LinkedIn"
               >
                 <Image src="/icons/home/InBug-White.png" alt="LinkedIn" width={32} height={32} />
               </a>
 
               <a
-                className="px-4 py-4 text-white rounded-full transition
-                          shadow-[0_0_15px_#4E03E0]
-                          bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-                          hover:bg-[linear-gradient(135deg,#4E03E0,#2A027A)]
-                          hover:scale-110"
+                className="px-4 py-4 text-foreground rounded-full border border-border-default transition
+                          shadow-[0_10px_24px_var(--shadow-purple)]
+                          bg-surface
+                          hover:border-border-hover
+                          hover:bg-surface-hover
+                          hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 href="mailto:icarosa20rs@gmail.com"
                 title="Enviar E-mail"
+                aria-label="Enviar e-mail"
               >
                 <Image src="/icons/home/icons8-gmail-250.png" alt="E-mail" width={32} height={32} />
               </a>
@@ -122,11 +130,11 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
+      <hr className="border-border-default w-1/3 mx-auto" />
       <SkillsSection />
-      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
+      <hr className="border-border-default w-1/3 mx-auto" />
       <ExperiencesSection />
-      <hr className="border-indigo-900/50 w-1/3 mx-auto" />
+      <hr className="border-border-default w-1/3 mx-auto" />
       <ProjectsSection />
     </div>
   );

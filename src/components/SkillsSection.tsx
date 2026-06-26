@@ -1,249 +1,180 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-import { motion, useAnimation } from "framer-motion";
+type Technology = {
+    src: string;
+    alt: string;
+};
 
-const techBubbles = [
-    { src: "/icons/skills/CSS3.png", alt: "Css" },
-    { src: "/icons/skills/HTML5.png", alt: "Html" },
-    { src: "/icons/skills/icons8-c-sharp-logo-240.png", alt: "C#" },
-    { src: "/icons/skills/icons8-docker-240.png", alt: "Docker" },
-    { src: "/icons/skills/icons8-git-240.png", alt: "Git" },
-    { src: "/icons/skills/icons8-intellij-idea-240.png", alt: "Intellij" },
-    { src: "/icons/skills/icons8-java-240.png", alt: "Java" },
-    { src: "/icons/skills/icons8-javascript-240.png", alt: "Javascript" },
-    { src: "/icons/skills/icons8-postgresql-240.png", alt: "Postgres" },
-    { src: "/icons/skills/icons8-python-240.png", alt: "Python" },
-    { src: "/icons/skills/linux_6124995.png", alt: "Linux" },
-    { src: "/icons/skills/MongoDB.png", alt: "MongoDB" },
-    { src: "/icons/skills/MySQL.png", alt: "MySQL" },
-    { src: "/icons/skills/NET.png", alt: ".Net" },
-    { src: "/icons/skills/node-svgrepo-com.png", alt: "Node.js" },
-    { src: "/icons/skills/Postman.png", alt: "Postman" },
-    { src: "/icons/skills/React.png", alt: "React.js" },
-    { src: "/icons/skills/Spring.png", alt: "Spring boot" },
-    { src: "/icons/skills/Visual Studio Code (VS Code).png", alt: "VS Code" },
-    { src: "/icons/skills/Visual Studio.png", alt: "Visual Studio" },
-    { src: "/icons/skills/Rider.png", alt: "Rider" },
+type SkillGroup = {
+    title: string;
+    description: string;
+    accent: string;
+    technologies: Technology[];
+};
+
+const skillGroups: SkillGroup[] = [
+    {
+        title: "Front-end e Interfaces",
+        description: "Interfaces responsivas, componentes reutilizáveis, integração com APIs e fluxos orientados às regras do produto.",
+        accent: "from-accent-muted to-transparent",
+        technologies: [
+            { src: "/icons/skills/icons8-typescript-100.png", alt: "TypeScript" },
+            { src: "/icons/skills/React.png", alt: "React" },
+            { src: "/icons/skills/icons8-nextjs-100.png", alt: "Next.js" },
+            { src: "/icons/skills/icons8-tailwind-css-100.png", alt: "Tailwind CSS" },
+            { src: "/icons/skills/HTML5.png", alt: "HTML" },
+            { src: "/icons/skills/CSS3.png", alt: "CSS" },
+        ],
+    },
+    {
+        title: "Back-end e APIs",
+        description: "APIs REST, autenticação, validação de dados, regras de negócio e integração com bancos de dados.",
+        accent: "from-accent-muted to-transparent",
+        technologies: [
+            { src: "/icons/skills/node-svgrepo-com.png", alt: "Node.js" },
+            { src: "/icons/skills/icons8-nestjs-100.png", alt: "NestJS" },
+            { src: "/icons/skills/icons8-java-240.png", alt: "Java" },
+            { src: "/icons/skills/Spring.png", alt: "Spring Boot" },
+            { src: "/icons/skills/icons8-python-240.png", alt: "Python" },
+        ],
+    },
+    {
+        title: "Bancos de Dados e Persistência",
+        description: "Modelagem relacional, persistência, relacionamentos, migrations e integração com aplicações Full Stack.",
+        accent: "from-accent-muted to-transparent",
+        technologies: [
+            { src: "/icons/skills/icons8-postgresql-240.png", alt: "PostgreSQL" },
+            { src: "/icons/skills/icons8-prisma-orm-100.png", alt: "Prisma ORM" },
+            { src: "/icons/skills/MySQL.png", alt: "MySQL" },
+            { src: "/icons/skills/MongoDB.png", alt: "MongoDB" },
+        ],
+    },
+    {
+        title: "Testes, Qualidade e Ferramentas",
+        description: "Testes automatizados, validação de APIs, versionamento, conteinerização e publicação de aplicações.",
+        accent: "from-accent-muted to-transparent",
+        technologies: [
+            { src: "/icons/skills/icons8-git-240.png", alt: "Git" },
+            { src: "/icons/skills/icons8-docker-240.png", alt: "Docker" },
+            { src: "/icons/skills/icons8-jest-100.png", alt: "Jest" },
+            { src: "/icons/skills/Postman.png", alt: "Postman" },
+            { src: "/icons/skills/Visual Studio Code (VS Code).png", alt: "VS Code" },
+            { src: "/icons/skills/linux_6124995.png", alt: "Linux" },
+        ],
+    },
 ];
 
-function randomStart(width: number, height: number, bubbleSize: number) {
-    return {
-        x: Math.random() * (width - bubbleSize),
-        y: Math.random() * (height - bubbleSize),
-    };
-}
-
 export default function SkillsSection() {
-    const boundsRef = useRef<HTMLDivElement>(null);
-
     return (
         <motion.section
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
-            className="flex flex-col items-center justify-start min-h-[100vh] px-8 sm:px-12 md:px-16 lg:px-24 py-16"
+            className="flex flex-col items-center justify-start px-6 py-16 sm:px-12 md:px-16 lg:min-h-[100vh] lg:px-24"
         >
-            <h2 id="skills" className="text-3xl font-bold text-blue-400 mb-12 text-center w-full scroll-mt-24 sm:scroll-mt-28">
+            <h2 id="skills" className="mb-12 w-full scroll-mt-24 text-center text-3xl font-bold text-accent sm:scroll-mt-28">
                 Skills
             </h2>
 
-            {/* Área das bolhas */}
-            <div
-                ref={boundsRef}
-                className="relative w-full min-h-[50vh] sm:min-h-[33vh] md:min-h-[35vh] lg:min-h-[38vh] xl:min-h-[40vh]"
+            <div className="grid w-full max-w-5xl overflow-hidden rounded-lg border border-border-default bg-surface/70 shadow-2xl shadow-[0_14px_34px_var(--shadow-purple)] backdrop-blur sm:grid-cols-2">
+                {skillGroups.map((group, index) => (
+                    <article
+                        key={group.title}
+                        className={[
+                            "relative min-h-[230px] border-border-default p-6 sm:p-8",
+                            index < 2 ? "border-b" : "",
+                            index % 2 === 0 ? "sm:border-r" : "",
+                        ].join(" ")}
+                    >
+                        <div className={`absolute inset-0 bg-gradient-to-br ${group.accent}`} />
+                        <div className="relative flex h-full flex-col">
+                            <div className="mb-6">
+                                <h3 className="text-xl font-bold text-foreground">{group.title}</h3>
+                                <p className="mt-2 text-sm leading-relaxed text-muted">{group.description}</p>
+                            </div>
 
-            >
-                {techBubbles.map((tech, index) => (
-                    <Bubble key={index} tech={tech} boundsRef={boundsRef} />
+                            <div className="mt-auto flex flex-wrap gap-4">
+                                {group.technologies.map((tech) => (
+                                    <div
+                                        key={tech.alt}
+                                        role="img"
+                                        aria-label={tech.alt}
+                                        tabIndex={0}
+                                        className="group flex h-14 w-14 items-center justify-center rounded-lg border border-border-default bg-background-secondary/70 p-2 shadow-lg shadow-[0_8px_22px_var(--shadow-purple)] transition duration-300 hover:-translate-y-1 hover:border-border-hover hover:bg-surface-hover focus-visible:-translate-y-1 focus-visible:border-border-hover focus-visible:bg-surface-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                                        title={tech.alt}
+                                    >
+                                        <Image
+                                            src={tech.src}
+                                            alt={tech.alt}
+                                            width={48}
+                                            height={48}
+                                            className="h-full w-full object-contain transition duration-300 group-hover:scale-110 group-focus-visible:scale-110"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </article>
                 ))}
             </div>
 
-            {/* Descrição abaixo das bolhas */}
-            <div className="flex flex-col items-center justify-center max-w-6xl px-6 sm:px-12 md:px-16 mt-12 text-center">
-
-                <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Linguagens & Backend
+            <div className="mt-12 flex w-full max-w-6xl flex-col items-center justify-center px-6 text-left sm:px-12 md:px-16">
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
+                    Front-end e Interfaces
                 </h2>
-                <p className="leading-relaxed text-lg mb-6">
-                    Desenvolvimento de regras de negócio, APIs REST e arquiteturas escaláveis. Forte experiência com <strong className="text-indigo-400">Java</strong>, <strong className="text-indigo-400">C#</strong>, <strong className="text-indigo-400">Python</strong> e ecossistema <strong className="text-indigo-400">Node.js</strong>. Fluência em frameworks maduros como <strong className="text-indigo-400">Spring Boot</strong>, <strong className="text-indigo-400">.NET API</strong> e <strong className="text-indigo-400">NestJS</strong>.
+                <p className="mb-4 text-lg leading-relaxed">
+                    Desenvolvo interfaces web responsivas e reutilizáveis com <strong className="text-tech">React</strong>, <strong className="text-tech">Next.js</strong> e <strong className="text-tech">TypeScript</strong>, transformando demandas e regras de negócio em componentes e fluxos claros para o usuário.
+                </p>
+                <p className="mb-4 text-lg leading-relaxed">
+                    Minha experiência inclui formulários, filtros, tabelas, calendários, modais, indicadores, estados de carregamento e tratamento de erros. Também realizo integração com APIs REST, adaptação dos dados retornados pelo Back-end e refatoração de interfaces existentes.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed">
+                    Utilizo <strong className="text-tech">Tailwind CSS</strong>, <strong className="text-tech">shadcn/ui</strong> e <strong className="text-tech">Radix UI</strong> para manter consistência visual e reutilização de componentes. <strong className="text-tech">React Query</strong> e <strong className="text-tech">Axios</strong> apoiam o controle de cache, paginação e sincronização de dados, enquanto <strong className="text-tech">React Hook Form</strong> e <strong className="text-tech">Zod</strong> são utilizados na construção e validação de formulários.
                 </p>
 
-                <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Frontend & Interfaces
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
+                    Back-end e APIs
                 </h2>
-                <p className="leading-relaxed text-lg mb-6">
-                    Construção de aplicações web modernas, SPAs dinâmicas e integração com múltiplos backends utilizando <strong className="text-indigo-400">React</strong>, <strong className="text-indigo-400">Next.js</strong> e focado em componentização via <strong className="text-indigo-400">JavaScript/TypeScript</strong> e estilização nativa/Tailwind.
+                <p className="mb-4 text-lg leading-relaxed">
+                    Desenvolvo APIs REST e serviços Back-end principalmente com <strong className="text-tech">Node.js</strong>, <strong className="text-tech">NestJS</strong> e <strong className="text-tech">TypeScript</strong>, trabalhando com autenticação, autorização, validação de dados, regras de negócio e integração com bancos relacionais.
+                </p>
+                <p className="mb-4 text-lg leading-relaxed">
+                    Estruturo as aplicações utilizando módulos, controllers, services, DTOs, repositories e injeção de dependência, mantendo responsabilidades bem definidas e facilitando a evolução do código.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed">
+                    Também desenvolvi projetos com <strong className="text-tech">Java</strong> e <strong className="text-tech">Spring Boot</strong>, <strong className="text-tech">C#</strong> e <strong className="text-tech">ASP.NET Core</strong>, <strong className="text-tech">Python</strong> e <strong className="text-tech">Flask</strong>, além de <strong className="text-tech">Express</strong>. Essas tecnologias representam experiências complementares à minha atuação principal com TypeScript.
                 </p>
 
-                <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Bancos de Dados
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
+                    Bancos de Dados e Persistência
                 </h2>
-                <p className="leading-relaxed text-lg mb-6">
-                    Modelagem relacional robusta em <strong className="text-indigo-400">PostgreSQL</strong> e <strong className="text-indigo-400">MySQL</strong>. Implementação de persistência ágil e flexível usando bancos não-relacionais como <strong className="text-indigo-400">MongoDB</strong>.
+                <p className="mb-4 text-lg leading-relaxed">
+                    Minha principal experiência com bancos de dados está concentrada no <strong className="text-tech">PostgreSQL</strong>, utilizado em aplicações profissionais e projetos Full Stack.
+                </p>
+                <p className="mb-4 text-lg leading-relaxed">
+                    Trabalho com modelagem relacional, entidades, relacionamentos, migrations, seed e integração entre persistência e APIs. Utilizo <strong className="text-tech">Prisma ORM</strong> e <strong className="text-tech">TypeORM</strong> em aplicações com Node.js e NestJS.
+                </p>
+                <p className="mb-6 text-lg leading-relaxed">
+                    Também tive contato com <strong className="text-tech">Entity Framework</strong>, <strong className="text-tech">MySQL</strong>, <strong className="text-tech">MongoDB</strong> e <strong className="text-tech">Redis</strong> em projetos acadêmicos, pessoais ou estudos de arquitetura.
                 </p>
 
-                <h2 className="text-2xl font-bold mb-4 text-blue-500">
-                    Cloud, DevOps & Infraestrutura
+                <h2 className="mb-4 w-full text-left text-2xl font-bold text-accent">
+                    Testes, Qualidade e Ferramentas
                 </h2>
-                <p className="leading-relaxed text-lg">
-                    Cultura de deploy eficiente adotando conteinerização com <strong className="text-indigo-400">Docker</strong> e orquestração leve via <strong className="text-indigo-400">Docker Compose</strong>. Vivência com ambientes <strong className="text-indigo-400">Linux</strong>, versionamento contínuo usando <strong className="text-indigo-400">Git/GitHub/GitLab</strong> e testes de integração de API utilizando <strong className="text-indigo-400">Postman/Insomnia</strong>.
+                <p className="mb-4 text-lg leading-relaxed">
+                    Desenvolvo e executo testes unitários e de integração para validar regras de negócio, services, endpoints, autenticação e respostas das APIs.
                 </p>
-
+                <p className="mb-4 text-lg leading-relaxed">
+                    Utilizo <strong className="text-tech">Jest</strong> e <strong className="text-tech">Supertest</strong> em aplicações com Node.js e NestJS, <strong className="text-tech">PyTest</strong> em projetos acadêmicos com Python e <strong className="text-tech">Postman</strong> para validação manual de endpoints, payloads e cenários de erro.
+                </p>
+                <p className="text-lg leading-relaxed">
+                    Trabalho com <strong className="text-tech">Git</strong>, <strong className="text-tech">GitHub</strong> e <strong className="text-tech">GitLab</strong> para versionamento e colaboração, <strong className="text-tech">Docker</strong> e <strong className="text-tech">Docker Compose</strong> para padronização de ambientes e <strong className="text-tech">Vercel</strong>, <strong className="text-tech">Render</strong> e <strong className="text-tech">Neon</strong> para publicação de aplicações. Também utilizo <strong className="text-tech">ESLint</strong> e <strong className="text-tech">Prettier</strong> para manter consistência e legibilidade no código.
+                </p>
             </div>
         </motion.section>
-    );
-}
-
-function Bubble({ tech, boundsRef }: any) {
-    const controls = useAnimation();
-
-    const speedMultiplier = 0.03;
-    const sizes = { mobile: 40, tablet: 50, desktop: 60 };
-
-    const [bubbleSize, setBubbleSize] = useState<number | null>(null);
-
-    const velRef = useRef({
-        vx: (Math.random() * 2 - 1) * speedMultiplier,
-        vy: (Math.random() * 2 - 1) * speedMultiplier,
-    });
-    const isDraggingRef = useRef(false);
-    const positionRef = useRef({ x: 0, y: 0 });
-    const bubbleRef = useRef<HTMLDivElement>(null);
-
-    const getBubbleSize = () => {
-        if (window.innerWidth < 640) return sizes.mobile;
-        if (window.innerWidth < 1024) return sizes.tablet;
-        return sizes.desktop;
-    };
-
-    // ✅ Define tamanho SOMENTE após mount
-    useEffect(() => {
-        const size = getBubbleSize();
-        setBubbleSize(size);
-
-        const handleResize = () => {
-            const newSize = getBubbleSize();
-            setBubbleSize(newSize);
-
-            if (!boundsRef.current) return;
-            const bounds = boundsRef.current.getBoundingClientRect();
-
-            positionRef.current.x = Math.min(positionRef.current.x, bounds.width - newSize);
-            positionRef.current.y = Math.min(positionRef.current.y, bounds.height - newSize);
-
-            controls.set(positionRef.current);
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    // ✅ Só inicia posição depois de ter tamanho
-    useEffect(() => {
-        if (!boundsRef.current || bubbleSize === null) return;
-
-        const rect = boundsRef.current.getBoundingClientRect();
-        positionRef.current = randomStart(rect.width, rect.height, bubbleSize);
-        controls.set(positionRef.current);
-    }, [boundsRef, controls, bubbleSize]);
-
-    // ✅ Só anima depois que o tamanho estiver definido
-    useEffect(() => {
-        if (bubbleSize === null) return;
-
-        let frameId: number;
-
-        const animateBubble = () => {
-            if (!boundsRef.current) {
-                frameId = requestAnimationFrame(animateBubble);
-                return;
-            }
-
-            if (!isDraggingRef.current) {
-                const bounds = boundsRef.current.getBoundingClientRect();
-                let { x, y } = positionRef.current;
-
-                x += velRef.current.vx;
-                y += velRef.current.vy;
-
-                const maxX = bounds.width - bubbleSize;
-                const maxY = bounds.height - bubbleSize;
-
-                if (x < 0 || x > maxX) velRef.current.vx *= -1;
-                if (y < 0 || y > maxY) velRef.current.vy *= -1;
-
-                x = Math.max(0, Math.min(x, maxX));
-                y = Math.max(0, Math.min(y, maxY));
-
-                positionRef.current = { x, y };
-
-                controls.start({
-                    x,
-                    y,
-                    transition: { duration: 0.05, ease: "linear" }
-                });
-            }
-
-            frameId = requestAnimationFrame(animateBubble);
-        };
-
-        animateBubble();
-        return () => cancelAnimationFrame(frameId);
-    }, [bubbleSize]);
-
-    if (bubbleSize === null) return null; // ✅ evita bolhas minúsculas no mount
-
-    return (
-        <motion.div
-            ref={bubbleRef}
-            className="absolute rounded-full shadow-[0_0_10px_rgba(78,3,224,0.6)] flex items-center justify-center cursor-grab active:cursor-grabbing"
-            style={{
-                width: bubbleSize,
-                height: bubbleSize,
-                background: "linear-gradient(135deg, #4E03E0, #2A027A)"
-            }}
-            drag
-            dragConstraints={boundsRef}
-            animate={controls}
-            onDragStart={() => { isDraggingRef.current = true; }}
-            onDragEnd={(_, info) => {
-                isDraggingRef.current = false;
-
-                if (!boundsRef.current || !bubbleRef.current) return;
-
-                const bounds = boundsRef.current.getBoundingClientRect();
-                const bubbleRect = bubbleRef.current.getBoundingClientRect();
-
-                const maxX = bounds.width - bubbleSize;
-                const maxY = bounds.height - bubbleSize;
-
-                // Captura exatamente onde o elemento parou na tela em relação ao container pai
-                let newX = bubbleRect.left - bounds.left;
-                let newY = bubbleRect.top - bounds.top;
-
-                // Garante que a bolha não saia da tela ao soltar
-                newX = Math.max(0, Math.min(newX, maxX));
-                newY = Math.max(0, Math.min(newY, maxY));
-
-                positionRef.current = { x: newX, y: newY };
-                controls.set({ x: newX, y: newY });
-
-                velRef.current.vx = (info.velocity.x / 2000) || (Math.random() * 0.05 - 0.025);
-                velRef.current.vy = (info.velocity.y / 2000) || (Math.random() * 0.05 - 0.025);
-            }}
-        >
-            <img
-                src={tech.src}
-                alt={tech.alt}
-                className="object-contain select-none pointer-events-none"
-                style={{
-                    width: bubbleSize * 0.66,
-                    height: bubbleSize * 0.66
-                }}
-            />
-        </motion.div>
     );
 }

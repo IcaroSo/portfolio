@@ -2,40 +2,114 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Project {
     title: string;
+    category: string;
+    status: string;
     description: string;
-    image: string;
-    link?: string;
+    image?: string;
+    imageAlt?: string;
+    repositoryUrl?: string;
     tags: string[];
+    isRestricted?: boolean;
+    restrictionLabel?: string;
 }
 
+const projectsPerPage = 2;
+
+const restrictedMessage =
+    "Código-fonte e detalhes técnicos não estão disponíveis publicamente devido às restrições do projeto.";
+
 export default function ProjectsSection() {
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
+    const startIndex = currentPage * projectsPerPage;
+    const visibleProjects = projects.slice(startIndex, startIndex + projectsPerPage);
+    const displayedStart = startIndex + 1;
+    const displayedEnd = Math.min(startIndex + visibleProjects.length, projects.length);
+
+    const goToPreviousPage = () => {
+        setCurrentPage((page) => (page === 0 ? totalPages - 1 : page - 1));
+    };
+
+    const goToNextPage = () => {
+        setCurrentPage((page) => (page === totalPages - 1 ? 0 : page + 1));
+    };
+
     return (
         <motion.section
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1.4, ease: "easeOut" }}
-            className="flex flex-col items-center justify-center min-h-[70vh] px-6 sm:px-10 md:px-16 lg:px-24 py-16"
+            className="flex min-h-[70vh] flex-col items-center justify-center px-6 py-16 sm:px-10 md:px-16 lg:px-24"
         >
-            <h2 id="projects" className="text-3xl font-bold text-blue-400 mb-12 text-center scroll-mt-24 sm:scroll-mt-28">
+            <h2 id="projects" className="mb-10 scroll-mt-24 text-center text-3xl font-bold text-accent sm:scroll-mt-28">
                 Projetos
             </h2>
 
-            <div
-                className="
-          grid gap-12 w-full max-w-7xl
-          grid-cols-1
-          md:grid-cols-2
-          xl:grid-cols-3
-        "
-            >
-                {projects.map((project, idx) => (
-                    <ProjectCard key={idx} project={project} />
-                ))}
+            <div className="w-full max-w-6xl">
+                <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-center text-sm font-semibold text-muted sm:text-left">
+                        {displayedStart}-{displayedEnd} de {projects.length}
+                    </p>
+
+                    <div className="flex items-center justify-center gap-3">
+                        <button
+                            type="button"
+                            onClick={goToPreviousPage}
+                            aria-label="Projetos anteriores"
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="m15 18-6-6 6-6" />
+                            </svg>
+                        </button>
+
+                        <div className="flex min-w-24 items-center justify-center gap-2" aria-label="Páginas de projetos">
+                            {Array.from({ length: totalPages }).map((_, pageIndex) => (
+                                <button
+                                    key={pageIndex}
+                                    type="button"
+                                    onClick={() => setCurrentPage(pageIndex)}
+                                    aria-label={`Ir para página ${pageIndex + 1} de projetos`}
+                                    className={`h-2.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${currentPage === pageIndex ? "w-8 bg-accent" : "w-2.5 bg-accent-muted hover:bg-accent-hover"}`}
+                                />
+                            ))}
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={goToNextPage}
+                            aria-label="Próximos projetos"
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-surface text-foreground shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div className="relative -mx-4 overflow-visible px-4 py-6">
+                    <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                            key={currentPage}
+                            initial={{ opacity: 0, x: 48 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -48 }}
+                            transition={{ duration: 0.35, ease: "easeOut" }}
+                            className="grid w-full auto-rows-fr grid-cols-1 gap-8 lg:grid-cols-2"
+                        >
+                            {visibleProjects.map((project) => (
+                                <ProjectCard key={project.title} project={project} />
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
         </motion.section>
     );
@@ -45,56 +119,98 @@ function ProjectCard({ project }: { project: Project }) {
     return (
         <div
             className="
-        flex flex-col
+        flex h-auto min-h-0 min-w-0 flex-col lg:h-[660px]
         group relative overflow-hidden rounded-2xl 
-        bg-gradient-to-br from-[#4E03E0] to-[#2A027A]
-        shadow-[0_0_20px_#4E03E0]
+        border border-border-default bg-[linear-gradient(135deg,var(--surface)_0%,var(--surface-elevated)_100%)]
+        shadow-[0_14px_34px_var(--shadow-purple)]
         transition-all duration-300 ease-out
-        lg:hover:bg-[linear-gradient(135deg,#6C34E8,#4D20A1)]
-        lg:hover:shadow-[0_0_35px_#4E03E0]
+        lg:hover:bg-[linear-gradient(135deg,var(--surface-hover)_0%,var(--surface-hover-elevated)_100%)]
+        lg:hover:shadow-[0_18px_42px_var(--shadow-purple-strong)]
         lg:hover:scale-[1.04]
         lg:hover:-translate-y-2
       "
         >
             <div className="w-full h-48 overflow-hidden relative shrink-0">
-                <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-all duration-300 lg:group-hover:scale-110"
-                />
+                {project.image ? (
+                    <Image
+                        src={project.image}
+                        alt={project.imageAlt ?? project.title}
+                        fill
+                        className="object-cover transition-all duration-300 lg:group-hover:scale-110"
+                        sizes="(max-width: 1023px) calc(100vw - 3rem), 544px"
+                    />
+                ) : (
+                    <div className="flex h-full w-full items-end bg-[radial-gradient(circle_at_top_left,var(--primary-muted),transparent_42%),linear-gradient(135deg,var(--surface),var(--surface-elevated)_52%,var(--background))] p-5">
+                        <div>
+                            <span className="text-xs font-semibold uppercase tracking-wider text-muted">
+                                {project.status}
+                            </span>
+                            <p className="mt-2 text-xl font-bold text-foreground">
+                                {project.title}
+                            </p>
+                        </div>
+                    </div>
+                )}
             </div>
 
             <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">{project.title}</h3>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, i) => (
-                        <span key={i} className="text-xs font-semibold px-2 py-1 rounded bg-indigo-900/50 text-indigo-300 border border-indigo-700/50">
+                    <span className="text-xs font-semibold px-2 py-1 rounded bg-background/40 text-foreground border border-border-default">
+                        {project.category}
+                    </span>
+                    <span className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-muted border border-border-default">
+                        {project.status}
+                    </span>
+                    {project.repositoryUrl && (
+                        <span className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-accent-hover border border-border-default">
+                            Repositório público
+                        </span>
+                    )}
+                    {project.isRestricted && (
+                        <span
+                            className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-accent-hover border border-border-default"
+                            title={restrictedMessage}
+                        >
+                            {project.restrictionLabel ?? "Projeto restrito"}
+                        </span>
+                    )}
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag) => (
+                        <span key={tag} className="text-xs font-semibold px-2 py-1 rounded bg-accent-muted text-accent-hover border border-border-default">
                             {tag}
                         </span>
                     ))}
                 </div>
 
-                <p className="text-sm text-gray-200 leading-relaxed mb-6 flex-grow">
+                <p className="text-sm text-muted leading-relaxed mb-5 flex-grow">
                     {project.description}
                 </p>
 
-                {project.link && (
+                {!project.repositoryUrl && project.isRestricted && (
+                    <p className="text-xs text-muted leading-relaxed mb-5 rounded-lg border border-border-default bg-background/40 px-3 py-2">
+                        {restrictedMessage}
+                    </p>
+                )}
+
+                {project.repositoryUrl && (
                     <div className="mt-auto">
                         <a
-                            href={project.link}
+                            href={project.repositoryUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
                                 inline-block px-5 py-2 rounded-lg
-                                bg-indigo-500 hover:bg-indigo-600
-                                text-white font-semibold text-sm
-                                shadow-[0_0_12px_#4E03E0]
-                                transition w-full text-center
+                                bg-accent hover:bg-accent-hover
+                                text-foreground font-semibold text-sm
+                                shadow-[0_10px_24px_var(--shadow-purple)]
+                                transition w-full text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background
                             "
                         >
-                            Ver Repositório
+                            Ver código
                         </a>
                     </div>
                 )}
@@ -105,42 +221,84 @@ function ProjectCard({ project }: { project: Project }) {
 
 const projects: Project[] = [
     {
+        title: "PixPro",
+        category: "Projeto acadêmico",
+        status: "Concluído",
+        description: "Plataforma de Processamento de Imagens com IA para upload, processamento e organização de imagens, com acompanhamento do status das operações em tempo real. Atuei principalmente em Back-end e Arquitetura, contribuindo para a definição da estrutura do sistema, separação de responsabilidades, integração entre componentes e organização técnica do projeto. A arquitetura foi planejada com microsserviços, comunicação assíncrona, mensageria, WebSockets, PostgreSQL, Redis, CQRS e EDA.",
+        image: "/images/pixpro.png",
+        imageAlt: "Imagem do projeto PixPro",
+        tags: ["Microsserviços", "WebSockets", "PostgreSQL", "Redis", "Mensageria", "CQRS", "EDA"],
+        isRestricted: true,
+    },
+    {
+        title: "Chatbot de Suporte ao Cliente com IA",
+        category: "Projeto acadêmico de IA",
+        status: "Concluído",
+        description: "Chatbot especializado em suporte ao cliente, desenvolvido com API em Flask e Flask-RESTX, interface em Streamlit e integração com Google Gemini. O projeto utiliza RAG com Chroma, histórico de conversas, validação de domínio, guardrails, avaliação de respostas e fallback local com Ollama e LLaVA. Também foram desenvolvidos testes unitários e de integração com PyTest.",
+        image: "/images/Assistente.png",
+        imageAlt: "Imagem do projeto Chatbot de Suporte ao Cliente com IA",
+        tags: ["Python", "Flask", "Flask-RESTX", "Streamlit", "Gemini", "RAG", "Chroma", "PyTest"],
+        isRestricted: true,
+    },
+    {
         title: "Qatu Marketplace",
-        description: "Desenvolvimento fullstack de um e-commerce em equipe para o ambiente de produção. Arquitetura robusta utilizando separação de contextos entre front e back, implementando conteinerização para deploy ágil e padronização de ambientes de desenvolvimento.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
-        tags: ["Node.js", "Express", "React", "Docker", "TailwindCSS"],
+        category: "Projeto acadêmico Full Stack",
+        status: "Concluído",
+        description: "Aplicação de e-commerce desenvolvida em equipe, com separação entre Front-end e Back-end e comunicação por API REST. O Front-end foi desenvolvido com React, Vite e Tailwind CSS, enquanto o Back-end utilizou Node.js e Express, com Docker para padronizar ambientes.",
+        image: "/images/Bahiazon.png",
+        imageAlt: "Imagem do projeto Qatu Marketplace",
+        tags: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "Docker", "API REST"],
+        isRestricted: true,
     },
     {
         title: "Fórum de Microsserviços",
-        description: "Projeto distribuído construído para simular um cenário de alta disponibilidade. Arquitetado com duas APIs REST independentes integrando a um único front-end desacoplado. Garante comunicação e padronização entre domínios distintos de aplicação.",
+        category: "Projeto acadêmico de arquitetura distribuída",
+        status: "Concluído",
+        description: "Sistema acadêmico composto por duas APIs independentes, uma em Java com Spring Boot e outra em C# com ASP.NET Core, integradas a um único Front-end em React para exercitar separação de responsabilidades, contratos REST e comunicação entre serviços.",
         image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800",
-        tags: ["Java", "Spring Boot", "C#", "ASP.NET Core", "React"],
+        imageAlt: "Imagem abstrata representando arquitetura distribuída",
+        tags: ["Java", "Spring Boot", "C#", "ASP.NET Core", "React", "APIs REST"],
+        isRestricted: true,
     },
     {
-        title: "API Museu de Histórias",
-        description: "Sistema para gestão e disponibilização de informações de acervo para museu mantido através de um projeto voluntário. Foco extremo na qualidade do software, implementando arquitetura TypeScript consistente e testes automatizados que garantem cobertura e resiliência na API REST.",
-        image: "https://images.unsplash.com/photo-1565153907400-7e01a9ab25f3?auto=format&fit=crop&q=80&w=800",
-        tags: ["NestJS", "TypeScript", "Jest", "TDD", "REST"],
+        title: "SARe",
+        category: "Projeto profissional freelancer",
+        status: "Concluído",
+        description: "Sistema de Teleconsulta e Gestão de Enfermagem voltado à gestão de pacientes e acompanhamento de processos de enfermagem. Atuei na evolução Full Stack, refatorando um Front-end existente e desenvolvendo Back-end, banco de dados, integrações, autenticação, testes e publicação.",
+        image: "/images/SARe.png",
+        imageAlt: "Imagem do projeto SARe",
+        tags: ["Next.js", "React", "TypeScript", "NestJS", "PostgreSQL", "Prisma ORM", "JWT", "Jest", "Supertest"],
+        isRestricted: true,
+        restrictionLabel: "Projeto profissional restrito",
     },
     {
-        title: "Authentication API Seguro",
-        description: "Solução de segurança backend focada em controle de acessos corporativos. Implementa padrões de arquitetura limpa com ASP.NET e Entity Framework, e encriptação forte de credenciais e permissões utilizando o algoritmo BCrypt mantendo rastreabilidade rigorosa de dados.",
-        image: "/images/authentication.jpg",
-        tags: ["C#", "ASP.NET Core", "Entity Framework", "BCrypt", "JWT"],
-        link: "https://github.com/IcaroSo/AuthenticationAPI",
+        title: "Gerenciador Web de Tarefas",
+        category: "Projeto Full Stack",
+        status: "Concluído",
+        description: "Aplicação Full Stack para organização e acompanhamento de tarefas, com autenticação e separação dos dados por usuário. Possui API REST em C# e ASP.NET Core, persistência em PostgreSQL e interface em React para operações de CRUD.",
+        image: "/images/todo.webp",
+        imageAlt: "Imagem do projeto Gerenciador Web de Tarefas",
+        tags: ["C#", ".NET", "ASP.NET Core", "PostgreSQL", "React", "API REST", "CRUD"],
+        repositoryUrl: "https://github.com/IcaroSo/ToDoApp/tree/develop",
     },
     {
-        title: "Gerenciador Web Tasks",
-        description: "Plataforma de gerenciamento produtivo completa com C# e banco de dados relacional. Suporta operações de CRUD avaçadas, persistência em PostgreSQL e integra uma API bem estruturada de autenticação de usuários para isolar listas de tarefas eficientemente.",
-        image: "/images/todo.jpg",
-        tags: ["C#", ".NET Core", "PostgreSQL", "React", "REST"],
-        link: "https://github.com/IcaroSo/ToDoApp/tree/develop",
-    },
-    {
-        title: "UNO Online WebSockets",
-        description: "Recriação do jogo clássico implementando multiplayer em tempo real. Foco central na performance e comunicação de baixíssima latência via web, utilizando fluxos controlados de WebSockets para sincronizar lógicas transacionais do jogo de forma bidirecional instântanea.",
+        title: "UNO Online",
+        category: "Aplicação em tempo real",
+        status: "Concluído",
+        description: "Jogo multiplayer inspirado em UNO, desenvolvido para aplicar comunicação bidirecional entre clientes e servidor. Utiliza Socket.IO e WebSockets para controlar eventos em tempo real, entrada de jogadores, estado da partida e sincronização de ações.",
         image: "/images/uno.jpeg",
-        tags: ["Node.js", "WebSockets", "React", "Vite", "Socket.io"],
-        link: "https://github.com/IcaroSo/Uno-Game",
+        imageAlt: "Imagem do projeto UNO Online",
+        tags: ["Node.js", "React", "Vite", "Socket.IO", "WebSockets", "Eventos em tempo real"],
+        repositoryUrl: "https://github.com/IcaroSo/Uno-Game",
+    },
+    {
+        title: "API de Autenticação e Controle de Acesso",
+        category: "Projeto Back-end",
+        status: "Concluído",
+        description: "API REST desenvolvida para cadastro, autenticação e autorização de usuários. Utiliza ASP.NET Core e Entity Framework, protege credenciais com BCrypt e realiza autorização das requisições por tokens JWT, separando responsabilidades de autenticação, persistência e validação.",
+        image: "/images/authentication.webp",
+        imageAlt: "Imagem do projeto API de Autenticação e Controle de Acesso",
+        tags: ["C#", "ASP.NET Core", "Entity Framework", "BCrypt", "JWT", "API REST"],
+        repositoryUrl: "https://github.com/IcaroSo/AuthenticationAPI",
     },
 ];
