@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -17,26 +17,36 @@ interface Project {
     restrictionLabel?: string;
 }
 
-const projectsPerPage = 2;
+const desktopProjectsPerPage = 2;
+const mobileProjectsPerPage = 1;
 
 const restrictedMessage =
     "Código-fonte e detalhes técnicos não estão disponíveis publicamente devido às restrições do projeto.";
 
 export default function ProjectsSection() {
     const [currentPage, setCurrentPage] = useState(0);
+    const isDesktop = useIsDesktop();
+    const projectsPerPage = isDesktop ? desktopProjectsPerPage : mobileProjectsPerPage;
 
     const totalPages = Math.ceil(projects.length / projectsPerPage);
-    const startIndex = currentPage * projectsPerPage;
+    const safeCurrentPage = Math.min(currentPage, totalPages - 1);
+    const startIndex = safeCurrentPage * projectsPerPage;
     const visibleProjects = projects.slice(startIndex, startIndex + projectsPerPage);
     const displayedStart = startIndex + 1;
     const displayedEnd = Math.min(startIndex + visibleProjects.length, projects.length);
 
     const goToPreviousPage = () => {
-        setCurrentPage((page) => (page === 0 ? totalPages - 1 : page - 1));
+        setCurrentPage((page) => {
+            const safePage = Math.min(page, totalPages - 1);
+            return safePage === 0 ? totalPages - 1 : safePage - 1;
+        });
     };
 
     const goToNextPage = () => {
-        setCurrentPage((page) => (page === totalPages - 1 ? 0 : page + 1));
+        setCurrentPage((page) => {
+            const safePage = Math.min(page, totalPages - 1);
+            return safePage === totalPages - 1 ? 0 : safePage + 1;
+        });
     };
 
     return (
@@ -76,7 +86,7 @@ export default function ProjectsSection() {
                                     type="button"
                                     onClick={() => setCurrentPage(pageIndex)}
                                     aria-label={`Ir para página ${pageIndex + 1} de projetos`}
-                                    className={`h-2.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${currentPage === pageIndex ? "w-8 bg-accent" : "w-2.5 bg-accent-muted hover:bg-accent-hover"}`}
+                                    className={`h-2.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${safeCurrentPage === pageIndex ? "w-8 bg-accent" : "w-2.5 bg-accent-muted hover:bg-accent-hover"}`}
                                 />
                             ))}
                         </div>
@@ -97,7 +107,7 @@ export default function ProjectsSection() {
                 <div className="relative -mx-4 overflow-visible px-4 py-6">
                     <AnimatePresence mode="wait" initial={false}>
                         <motion.div
-                            key={currentPage}
+                            key={`${projectsPerPage}-${safeCurrentPage}`}
                             initial={{ opacity: 0, x: 48 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -48 }}
@@ -113,6 +123,22 @@ export default function ProjectsSection() {
             </div>
         </motion.section>
     );
+}
+
+function useIsDesktop() {
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(min-width: 1024px)");
+        const updateIsDesktop = () => setIsDesktop(mediaQuery.matches);
+
+        updateIsDesktop();
+        mediaQuery.addEventListener("change", updateIsDesktop);
+
+        return () => mediaQuery.removeEventListener("change", updateIsDesktop);
+    }, []);
+
+    return isDesktop;
 }
 
 function ProjectCard({ project }: { project: Project }) {
