@@ -87,7 +87,7 @@ export default function Navbar() {
           }}
           aria-label="Ir para o início"
           aria-current={activeHref === "#home" ? "location" : undefined}
-          className={`absolute left-4 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-border-default bg-background shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover sm:left-6 md:left-8 ${focusRing}`}
+          className={`absolute left-12 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-border-default bg-background shadow-[0_10px_24px_var(--shadow-purple)] transition hover:-translate-y-0.5 hover:border-border-hover sm:left-14 md:left-16 lg:left-24 ${focusRing}`}
         >
           <Image
             src="/icons/aba/logo.png"
